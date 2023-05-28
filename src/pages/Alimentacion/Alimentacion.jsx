@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import "./Alimentacion.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom'
 
 const Alimentacion = () => {
 
@@ -25,10 +26,10 @@ const Alimentacion = () => {
                             </Card.Text>
 
                         </Card.Body>
-                        <Button as={"button"}>Go somewhere</Button>
+                        <Link to={"/alimentacion/randomFood"}> <Button as={"button"}>Go somewhere</Button></Link>
                     </Col>
                 </Row>
-            </Card>
+            </Card >
 
             <Card className="aliCard inv">
 

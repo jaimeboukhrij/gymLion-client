@@ -27,7 +27,7 @@ function Navigation() {
             </div>
             <ul className="nav-links">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#">Alimentación</a></li>
+                <li><a href="/alimentacion">Alimentación</a></li>
                 <li><a href="#">Entrenamiento</a></li>
                 <li><a href="#">LionClub</a></li>
 

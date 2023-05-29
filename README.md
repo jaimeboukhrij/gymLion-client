@@ -1,4 +1,6 @@
 
+CLIENT ROUTES
+
 
 |            URL              |        Description      | PROTECTED |
 |-----------------------------|-------------------------|-----------|
@@ -7,7 +9,7 @@
 | /logIn                      | Log In                  |           |
 | /alimentacion               | Menu Alimentacion       |           |
 | /alimentacion/randomFood    | Random Food             | ✔️       |
-| /alimentacion/MyMeals       | My Meals Tracking       | ✔️       |                                            
+| /alimentacion/Meals         | Meals Tracking          | ✔️       |                                            
 | /alimentacion/searchAliment | Nutritional Information | ✔️       |
 | /myProfile                  | View Profile            | ✔️       |
 | /aboutUs                    | About Us                |           |

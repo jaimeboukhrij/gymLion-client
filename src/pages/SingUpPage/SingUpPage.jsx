@@ -9,7 +9,7 @@ const SignupPage = () => {
 
         <div className="SingUp">
 
-            <img className="imgSingUp" src="../../../imgLogin.png" alt="" />
+            <img className="imgSingUp" src="../../../nopain.jpg" alt="" />
             <SignupForm />
 
 

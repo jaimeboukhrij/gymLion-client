@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -6,45 +5,47 @@ import "./MealCard.css"
 
 const MealCard = ({ meal }) => {
 
-
     const [mealData, setMealData] = useState();
+    console.log(meal.id)
 
     useEffect(() => {
-        fetch(
-            `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=cb1c464d94f142c08b156c5beddade8b&includeNutrition=false`
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
+        const fetchMealData = async () => {
+            const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${meal.id}/information`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '999cef8629msh1d645ba25963b8ep182047jsnf05459ad076d',
+                    'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const data = await response.json();
                 setMealData(data);
-            })
-            .catch(() => {
-                console.log("error");
-            });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchMealData();
     }, [meal.id]);
 
-
     return (
-
-        mealData
-            ?
+        mealData ?
             <Card className='carRandomFood'>
                 <Card.Img variant="top" src={mealData.image} />
                 <Card.Body>
                     <Card.Title>{mealData.title}</Card.Title>
-
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button as={"button"} >Go</Button>
                 </Card.Body>
             </Card>
             :
             <p>pensando</p>
-
     )
 }
 
-
-
-export default MealCard
+export default MealCard;
 
 
 

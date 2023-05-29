@@ -26,7 +26,7 @@ const LogInForm = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                navigate(-1)
+                navigate("/")
             })
             .catch(err => console.log(err))
     }

@@ -26,7 +26,7 @@ const Alimentacion = () => {
                             </Card.Text>
 
                         </Card.Body>
-                        <Link to={"/alimentacion/randomFood"}> <Button as={"button"}>Go somewhere</Button></Link>
+                        <Link to={"/alimentacion/randomFood"}> <Button as={"button"}>COMENCEMOS!</Button></Link>
                     </Col>
                 </Row>
             </Card >
@@ -46,7 +46,7 @@ const Alimentacion = () => {
                             </Card.Text>
 
                         </Card.Body>
-                        <Button as={"button"} >Go somewhere</Button>
+                        <Button as={"button"} >COMENCEMOS!</Button>
                     </Col>
 
                     <Col md={4}>
@@ -72,7 +72,7 @@ const Alimentacion = () => {
                             </Card.Text>
 
                         </Card.Body>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="primary">COMENCEMOS!</Button>
                     </Col>
                 </Row>
             </Card>

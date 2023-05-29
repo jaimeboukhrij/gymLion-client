@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Navbar, Container, Nav } from 'react-bootstrap'
+import { Navbar, Container, Nav, NavDropdown, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import "./Navigation.css"
@@ -13,37 +13,46 @@ function Navigation() {
 
     const { user, logout } = useContext(AuthContext)
 
+    const profileLogo = `Bienvenido, ${user?.firstName}`
+
+    console.log(user)
+
+
+
 
 
     return (
+
         <nav>
-            <div className="logo">
-                <img src="../../../../lion.png" alt="Logo Image" />
-            </div>
-            <div className="hamburger">
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
-            </div>
-            <ul className="nav-links">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/alimentacion">Alimentación</a></li>
+            <ul class="menu nav-menu">
+                <li><a href="/">Home</a></li>
+                <li>
+                    <a href="/alimentacion">Alimentacion</a>
+                    <ul class="menu-item">
+                        <li><a href="/alimentacion/randomFood">A comer</a></li>
+                        <li><a href="#">Graphics design</a></li>
+
+                    </ul>
+                </li>
                 <li><a href="#">Entrenamiento</a></li>
-                <li><a href="#">LionClub</a></li>
+                <li><a href="#">Social</a></li>
+                <li><a href="#">About us</a></li>
+                <li>
+                    <a href="/login">LogIn</a>
+                    <ul class="menu-item">
+                        <li><a href="/singup">SingUp</a></li>
 
-                {user
-                    ?
-                    <li> <Nav.Link as="a" onClick={logout}>Cerrar sesión</Nav.Link></li>
-                    :
-                    <>
-                        <li><Link to={"/login"} ><button className="login-button" >LogIn</button></Link></li>
-                        <li><Link to={"/singup"}><button className="join-button" href="#">SingUp</button></Link></li>
-                    </>
-                }
-
+                    </ul>
+                </li>
             </ul>
-        </nav>
-    );
+        </nav>)
+
+
+
 }
 
 export default Navigation;
+
+
+
+

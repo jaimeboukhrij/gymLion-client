@@ -30,6 +30,7 @@ function AuthProviderWrapper(props) {
 
         const token = localStorage.getItem("authToken")
 
+
         if (token) {
             authService
                 .verify(token)

@@ -37,7 +37,7 @@ const MealCard = ({ meal }) => {
                 <Card.Img variant="top" src={mealData.image} />
                 <Card.Body>
                     <Card.Title>{mealData.title}</Card.Title>
-                    <Button as={"button"} >Go</Button>
+                    <Button as={"button"} className='carRandomFoodButton'>Go</Button>
                 </Card.Body>
             </Card>
             :

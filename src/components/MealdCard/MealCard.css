@@ -8,8 +8,8 @@
 }
 
 
-.carRandomFood button {
+.carRandomFoodButton {
     display: grid;
-    color: red;
+    background-color: red;
 
 }

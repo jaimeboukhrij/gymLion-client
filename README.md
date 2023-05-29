@@ -1,14 +1,14 @@
 
 
-| HTTP Method | URL Path                        | Description                | JSON |
-|-------------|---------------------------------|----------------------------|------|
-| GET         | /                               | Inicio                     |      |
-| GET         | /signUp                         | registrate                 |      |
-| GET         | /logIn                          | iniciar sesion             |      |
-| GET         | /alimentacion                   | menu alimentacion          |      |
-| GET         | /alimentacion/randomFood        | comidas aletorias          |      |
-| GET         | /alimentacion/MisComidas        | seguimiento de mis comidas |      |
-| GET         | /alimentacion/buscarAlimento    | inf nutricional alimento   |      |
-| GET         | /myPerfil                       | ver perfil                 |      |
-| GET         | /aboutUs                        | sobre nosotros             |      |
+|          URL Path           |        Description      | PROTECTED |
+|-----------------------------|-------------------------|-----------|
+| /                           | Home                    |           |
+| /signUp                     | Sign Up                 | ✔️       |
+| /logIn                      | Log In                  | ✔️       |
+| /alimentacion               | Menu Alimentacion       | ✔️       |
+| /alimentacion/randomFood    | Random Food             | ✔️       |
+| /alimentacion/MyMeals       | My Meals Tracking       | ✔️       |
+| /alimentacion/searchAliment | Nutritional Information | ✔️       |
+| /myProfile                  | View Profile            | ✔️       |
+| /aboutUs                    | About Us                |           |
 

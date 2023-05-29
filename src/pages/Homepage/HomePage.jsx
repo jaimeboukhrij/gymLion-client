@@ -16,7 +16,7 @@ function HomePage() {
             <p>Alimentacion</p>
             <img src="../../../alimentacionIcon.png" alt="" />
         </a>
-        <a href="#" style={{ padding: "85px 60px" }}>
+        <a href="" style={{ padding: "85px 60px" }}>
             <span></span>
             <span></span>
             <span></span>

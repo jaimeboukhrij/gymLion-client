@@ -5,6 +5,7 @@ import SignupPage from "../pages/SingUpPage/SingUpPage"
 import Alimentacion from "../pages//Alimentacion/Alimentacion"
 import PrivateRoute from "./PrivateRoutes"
 import RandomFoodPage from "../pages/RandomFoodPage/RandomFoodPage"
+import SearchFood from "../pages/SearchFood/SearchFood"
 
 const AppRoutes = () => {
 
@@ -17,6 +18,8 @@ const AppRoutes = () => {
 
             <Route path="/alimentacion" element={<PrivateRoute />}>
                 <Route path="/alimentacion/randomFood" element={<RandomFoodPage />} />
+                <Route path="/alimentacion/searchFood" element={<SearchFood />} />
+
             </Route>
 
         </Routes>

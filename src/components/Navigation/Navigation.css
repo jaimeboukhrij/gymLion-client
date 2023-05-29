@@ -8,6 +8,19 @@
     clear: both;
 }
 
+.lastLiMenu {
+    width: 350px;
+    display: block
+}
+
+.menu img {
+    float: right;
+    width: 60px;
+    height: 50px;
+    border-radius: 70%;
+    margin-top: -65px;
+}
+
 .nav-menu {
     *zoom: 1;
 }
@@ -15,6 +28,8 @@
 nav {
     background-color: #050801;
 }
+
+
 
 .menu,
 .submenu {
@@ -39,6 +54,13 @@ nav {
     transform: skewX(25deg);
     z-index: 1;
 }
+
+/* .menu li:nth-child(6),
+.menu li:nth-child(7) {
+    background: grey;
+
+
+} */
 
 .menu a {
     display: block;
@@ -138,4 +160,8 @@ nav {
 
 .menu>li:hover .menu-item li:nth-child(odd) {
     transform: skewX(-25deg) translateX(-15px);
+}
+
+.navLogin {
+    background-color: purple;
 }

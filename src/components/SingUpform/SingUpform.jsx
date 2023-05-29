@@ -13,7 +13,7 @@ const SignupForm = () => {
         password: '',
         firstName: '',
         secondName: "",
-        profileImg: ""
+        avatar: ""
     })
 
     const navigate = useNavigate()
@@ -37,18 +37,18 @@ const SignupForm = () => {
             .catch(err => console.log(err))
     }
 
-    const profImg = useCallback((url) => {
-        setSignupData((prevData) => ({ ...prevData, profileImg: url }));
+    const avatar = useCallback((url) => {
+        setSignupData((prevData) => ({ ...prevData, avatar: url }));
     }, []);
 
 
-    const { firstName, secondName, password, email } = signupData
+    const { email, password, firstName, lastName } = signupData
 
     return (
 
         <Form onSubmit={handleSubmit}>
 
-            <div className="SingUpcard">
+            <div className="SingUpcard" style={{ margin: "70px 0 0 0" }}>
                 <h2 className="title">¡COMENCEMOS!</h2>
 
 
@@ -72,12 +72,12 @@ const SignupForm = () => {
                 </div>
 
                 <div className="inputBox">
-                    <input type="text" value={secondName} onChange={handleInputChange} name="secondName" required="required" />
+                    <input type="text" value={lastName} onChange={handleInputChange} name="lastName" required="required" />
                     <span>Apellido</span>
                 </div>
 
                 <div className="inputBox">
-                    <ImageUploader profImg={profImg} />
+                    <ImageUploader profImg={avatar} />
                     <span>Imagen Perfil</span>
                 </div>
 

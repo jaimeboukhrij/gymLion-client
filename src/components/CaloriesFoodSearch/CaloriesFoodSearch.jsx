@@ -1,8 +1,11 @@
+import "./CaloriesFoodSearch.css"
 import { useEffect, useState } from "react";
 import foodService from "../../services/food.services";
-import "./SearchFood.css";
+import { Button } from "react-bootstrap";
 
-const SearchFood = () => {
+const CaloriesFoodSearch = ({ changeShowFood }) => {
+
+
 
     const [foodQuery, setFoodQuery] = useState("");
     const [showFood, setShowFood] = useState("");
@@ -10,14 +13,13 @@ const SearchFood = () => {
     const handleQueryChange = ({ target }) => {
         const { value } = target
         setFoodQuery(value)
+
         foodService
             .searchFood(value)
             .then(({ data }) => setShowFood(data))
             .catch((err) => console.log(err))
-
-
-
     }
+
 
     return (
         <>
@@ -34,11 +36,17 @@ const SearchFood = () => {
                     ?
 
                     <div style={{ background: "white" }}>
-                        {
-                            showFood.map(({ id, name, image }) => {
-                                return <img src={`https://spoonacular.com/cdn/ingredients_100x100/${image}`} alt={name} key={id} />
-                            })
-                        }
+
+                        <lu>
+                            {
+                                showFood.map(({ id, name, image }) => {
+
+                                    return <li> <button onClick={() => changeShowFood(id)}> {name}  </button> </li>
+
+
+                                })
+                            }
+                        </lu>
                     </div>
 
                     :
@@ -52,4 +60,4 @@ const SearchFood = () => {
 }
 
 
-export default SearchFood;
+export default CaloriesFoodSearch

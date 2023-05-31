@@ -14,10 +14,12 @@ function Navigation() {
             <ul className="menu nav-menu">
                 <li><a href="/">Home</a></li>
                 <li>
-                    <a href="/alimentacion">Alimentacion</a>
+                    <a href="/nutrition">NUTRITION</a>
                     <ul className="menu-item">
-                        <li><a href="/alimentacion/randomFood">Get Your Meal</a></li>
-                        <li><a href="alimentacion/searchFood">Search Food Details</a></li>
+
+                        <li><a href="/nutrition/mealsDay">Get Your MealDay</a></li>
+                        <li><a href="/nutrition/randomFood">Get Your Meal</a></li>
+                        <li><a href="/nutrition/searchFood">Search Food Details</a></li>
 
                     </ul>
                 </li>
@@ -30,9 +32,9 @@ function Navigation() {
                         ?
 
                         <li className='lastLiMenu'>
-                            <a href="/alimentacion">Your Profile</a>
+                            <a href="">Your Profile</a>
                             <ul className="menu-item">
-                                <li><a href="/alimentacion/randomFood">My Profile</a></li>
+                                <li><a href="">My Profile</a></li>
                                 <li><a href="#" onClick={logout}>LogOut</a></li>
 
                             </ul>

@@ -3,20 +3,19 @@ import axios from 'axios';
 class FoodService {
     constructor() {
         this.api = axios.create({
-            baseURL: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            headers: {
-                'X-RapidAPI-Key': '999cef8629msh1d645ba25963b8ep182047jsnf05459ad076d',
-                'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+            baseURL: "https://api.spoonacular.com",
+            params: {
+                'apiKey': 'f249a02562124893ba2adf489a106fc2',
             }
-        });
+        })
     }
 
     getMeals(calories) {
-        return this.api.get(`recipes/mealplans/generate?timeFrame=day&targetCalories=${calories}`);
+        return this.api.get(`/recipes/mealplans/generate?timeFrame=day&targetCalories=${calories}`);
     }
 
     getMealInf(idMeal) {
-        return this.api.get(`/recipes/${idMeal}/information`);
+        return this.api.get(`/recipes/${idMeal}/information?includeNutrition=true`);
 
     }
 
@@ -24,6 +23,17 @@ class FoodService {
         return this.api.get(`food/ingredients/autocomplete?query=${query}&number=10&metaInformation=true`);
 
     }
+
+    getIngredientsRecipes(recipeId) {
+        return this.api.get(`/recipes/${recipeId}/ingredientWidget.json?`)
+    }
+
+    getFoodInf(foodId) {
+        return this.api.get(`food/ingredients/${foodId}/information?`)
+    }
+
+
+
 }
 
 const foodService = new FoodService();

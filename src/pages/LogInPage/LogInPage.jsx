@@ -4,15 +4,12 @@ import "./LogInPage.css"
 
 const LogInPage = () => {
 
-    return (<div className="logIn">
+    return (
 
-        <LogInForm />
-
-
-        <img className="imgLogIn" src="../../../imgLogin.png" alt="" />
-
-
-    </div>
+        <div className="logIn">
+            <LogInForm />
+            <img className="imgLogIn" src="../../../imgLogin.png" alt="" />
+        </div>
 
     )
 }

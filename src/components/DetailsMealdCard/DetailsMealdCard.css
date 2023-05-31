@@ -1,0 +1,60 @@
+ .modalFoodPage {
+     background-color: #050801;
+     border: none;
+     border: 4px solid #8a71b3;
+     color: white;
+
+     border-radius: 22px;
+     max-height: 850px;
+     min-width: 1000px;
+     overflow: auto;
+
+ }
+
+
+ .modal-header {
+     display: none;
+ }
+
+ .bodyModal {
+     height: 100vh;
+
+     text-align: center;
+ }
+
+ .bodyModal img {
+     width: 90%;
+     margin-bottom: 60px;
+
+ }
+
+ .bodyModal h1 {
+     font-family: sans-serif;
+     text-transform: uppercase;
+     color: white;
+     font-size: 3em;
+     margin-bottom: 20px;
+ }
+
+ .bodyModal h2,
+ .instructions h2 {
+     text-decoration: underline;
+     margin-bottom: 30px;
+     margin-top: 90px;
+ }
+
+ .instructions {
+     padding: 20px;
+ }
+
+ .instructions p {
+     text-align: justify;
+     font-family: sans-serif;
+     font-size: 1.4em;
+
+ }
+
+ .Macros {
+     height: 700px;
+
+ }

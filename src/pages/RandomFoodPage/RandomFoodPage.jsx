@@ -23,14 +23,15 @@ function RandomFoodPage() {
             .catch(err => console.log(err))
     }
 
-    function handleChange(e) {
-        setCalories(e.target.value);
+    function handleChange({ target }) {
+        const { value } = target
+        setCalories(value)
     }
 
 
 
     return (
-        <section className="webdesigntuts-workshop">
+        <section className="webdesigntuts-workshop" style={{ overflow: "none" }}>
             <div className="form">
                 <input type="search" onChange={handleChange} placeholder="¿Cuántas Kcal quieres consumir?" />
                 <button className="firstButom" onClick={getMealdData}>Search</button>
@@ -41,16 +42,17 @@ function RandomFoodPage() {
 
                     <Row style={{ padding: "90px 0 0px 110px" }}>
 
-                        {mealData.map((meal, index) => (
+                        {
+                            mealData.map(meal => (
 
-                            <Col key={index}>
-                                <MealCard meal={meal} />
-                            </Col>
+                                <Col key={meal.id}>
+                                    <MealCard meal={meal} />
+                                </Col>
 
-                        ))}
+                            ))
+                        }
 
                     </Row>
-
                     :
                     null
             }

@@ -8,12 +8,12 @@ function HomePage() {
 
 
     return (<div className="homePage">
-        <a href="/alimentacion" style={{ padding: "85px 60px" }}>
+        <a href="/nutrition" style={{ padding: "85px 100px" }}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <p>Alimentacion</p>
+            <p>Nutrition</p>
             <img src="../../../alimentacionIcon.png" alt="" />
         </a>
         <a href="" style={{ padding: "85px 60px" }}>

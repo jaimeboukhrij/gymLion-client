@@ -16,14 +16,13 @@ const ImageUploader = ({ profImg }) => {
         formData.append('file', file);
         formData.append('upload_preset', 'ysg6er97');
 
-        // Realizar la solicitud de carga a Cloudinary
+
         fetch('https://api.cloudinary.com/v1_1/djpeqlbo6/image/upload', {
             method: 'POST',
             body: formData,
         })
             .then((response) => response.json())
             .then((data) => {
-                // Obtener la URL de la imagen desde la respuesta de Cloudinary
                 const imageUrl = data.secure_url;
                 setImageUrl(imageUrl);
             })

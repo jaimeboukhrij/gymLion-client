@@ -5,6 +5,8 @@ import "./MealCard.css"
 import foodService from '../../services/food.services';
 import { Modal } from 'react-bootstrap';
 import DetailsMealdCard from '../DetailsMealdCard/DetailsMealdCard';
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalHeader from 'react-bootstrap/ModalHeader'
 
 const MealCard = ({ meal }) => {
 
@@ -20,7 +22,6 @@ const MealCard = ({ meal }) => {
         foodService
             .getMealInf(meal.id)
             .then(({ data }) => {
-                console.log(data)
                 setMealData(data)
             })
             .catch(err => console.log(err))
@@ -46,12 +47,12 @@ const MealCard = ({ meal }) => {
 
                 </Card>
 
-                <Modal show={showModal} onHide={() => setShowModal(false)} style={{ margin: "0 0 0 -90px" }}>
+                <Modal show={showModal} className={ModalTitle} onHide={() => setShowModal(false)} style={{ margin: "0 0 0 -250px" }}>
 
                     <div className="modalFoodPage">
 
-                        <Modal.Header closeButton>
-                            <Modal.Title>Details</Modal.Title>
+                        <Modal.Header className='modal-header' closeButton>
+                            <Modal.Title as={"h1"} >{shortTitle}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <DetailsMealdCard {...mealData} />

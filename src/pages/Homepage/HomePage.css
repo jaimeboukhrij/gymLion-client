@@ -1,5 +1,5 @@
 .homePage {
-    width: 100%;
+    min-width: 700px;
     height: 795px;
     background: #050801;
     display: flex;

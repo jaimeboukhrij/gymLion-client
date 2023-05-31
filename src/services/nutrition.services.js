@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-class AuthService {
+class NutritionService {
 
     constructor() {
 
         this.api = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}/auth`
+            baseURL: `${process.env.REACT_APP_API_URL}/nutrition`
         })
 
         this.api.interceptors.request.use((config) => {
@@ -21,19 +21,20 @@ class AuthService {
 
     }
 
-    signup(userData) {
-        return this.api.post('/signup', userData)
+
+    getMealDayInf(idUser) {
+        return this.api.get(`/mealDayPlan/${idUser}`)
     }
 
-    login(userData) {
-        return this.api.post('/login', userData)
+
+    saveMealDayInf(idMeals) {
+        return this.api.post(`/mealDayPlan`, idMeals)
     }
 
-    verify(token) {
-        return this.api.get('/verify', { headers: { Authorization: `Bearer ${token}` } })
-    }
+
+
 }
 
-const authService = new AuthService()
+const nutritionService = new NutritionService()
 
-export default authService
+export default nutritionService

@@ -11,9 +11,7 @@ function App() {
 
       <Navigation />
 
-      <div className='AppRoutes' >
-        <AppRoutes />
-      </div >
+      <AppRoutes />
 
     </div>
   );

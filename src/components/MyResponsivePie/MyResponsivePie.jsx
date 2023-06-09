@@ -1,120 +1,148 @@
-import React from 'react';
-import './MyResponsivePie.css';
 import { ResponsivePie } from '@nivo/pie';
+import { useEffect, useState } from 'react';
 
-const MyResponsivePie = ({ data /* see data tab */ }) => (
-    <ResponsivePie
-        data={data}
-        margin={{ top: 60, right: 90, bottom: 90, left: 80 }}
-        startAngle={-23}
-        endAngle={349}
-        innerRadius={0.4}
-        padAngle={2}
-        activeOuterRadiusOffset={8}
-        colors={{ scheme: 'paired' }}
-        borderWidth={3}
-        borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '0.2'
-                ]
-            ]
-        }}
-        arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color' }}
-        enableArcLabels={false}
-        arcLabelsSkipAngle={10}
-        arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    2
-                ]
-            ]
-        }}
+const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
+    return (
+        <text
+            x={centerX}
+            y={centerY}
+            textAnchor="middle"
+            dominantBaseline="central"
+            style={{
+                fontSize: '3.3rem',
+                fontWeight: 'bold',
+                fill: 'white',
+            }}
+        >
+            {parseInt(dataWithArc[3].id)} Kcal
+        </text>
+    );
+};
 
-        defs={[
-            {
-                "id": "Protein",
-                "type": "patternLines",
-                "spacing": 1,
-                "rotation": -8,
-                "lineWidth": 2,
-                "background": "#ffffff",
-                "color": "yellow"
-            },
-            {
-                "id": "Fat",
-                "type": "patternLines",
-                "spacing": 1,
-                "rotation": -8,
-                "lineWidth": 2,
-                "background": "#ffffff",
-                "color": "#1254ab"
-            },
-            {
-                "id": "Carbs",
-                "type": "patternLines",
-                "spacing": 1,
-                "rotation": -8,
-                "lineWidth": 2,
-                "background": "#ffffff",
-                "color": "#dd0e0e"
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'Carbs'
+const MyResponsivePie = ({ showFoodInf }) => {
+    const { caloricBreakdown } = showFoodInf;
+    const { percentProtein, percentFat, percentCarbs } = caloricBreakdown;
+    const { nutrients } = showFoodInf;
+
+    const [showCalories, setShowCalories] = useState();
+
+    useEffect(() => {
+        calories();
+    }, [showFoodInf]);
+
+    const calories = () => {
+        setShowCalories(undefined);
+        nutrients?.forEach((element) => {
+            if (element.name === 'Calories') setShowCalories(element.amount);
+        });
+    };
+
+    return (
+        <ResponsivePie
+            data={[
+                {
+                    id: 'Protein',
+                    label: 'Protein',
+                    value: percentProtein,
+                    color: 'red',
                 },
-                id: 'Carbs'
-            },
-            {
-                match: {
-                    id: 'Fat'
+                {
+                    id: 'Fat',
+                    label: 'Fat',
+                    value: percentFat,
+                    color: 'yellow',
                 },
-                id: 'Fat'
-            },
-            {
-                match: {
-                    id: 'Protein'
+                {
+                    id: 'Carbs',
+                    label: 'Carbs',
+                    value: percentCarbs,
+                    color: 'blue',
                 },
-                id: 'Protein'
-            },
-
-        ]}
-        legends={[
-            {
-                anchor: 'bottom-right',
-                direction: 'column',
-                justify: false,
-                translateX: 17,
-                translateY: 56,
-                itemsSpacing: 2,
-                itemWidth: 96,
-                itemHeight: 19,
-                itemTextColor: '#999',
-                itemDirection: 'left-to-right',
-                itemOpacity: 1,
-                symbolSize: 25,
-                symbolShape: 'circle',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000'
-                        }
-                    }
-                ]
-            }
-        ]}
-    />
-)
-
+                {
+                    id: showCalories,
+                    value: 0,
+                },
+            ]}
+            margin={{
+                right: 80, bottom: 80, left: 80
+            }}
+            innerRadius={0.5}
+            padAngle={0.7}
+            cornerRadius={3}
+            activeOuterRadiusOffset={8}
+            borderWidth={1}
+            borderColor={{
+                from: 'color',
+                modifiers: [['darker', 0.2]],
+            }}
+            arcLinkLabelsSkipAngle={10}
+            arcLinkLabelsTextColor="#333333"
+            arcLinkLabelsThickness={2}
+            arcLinkLabelsColor={{ from: 'color' }}
+            arcLabelsSkipAngle={10}
+            arcLabelsTextColor={{
+                from: 'color',
+                modifiers: [['darker', 2]],
+            }}
+            defs={[
+                {
+                    id: 'Protein',
+                    type: 'patternLines',
+                    spacing: 32,
+                    rotation: -360,
+                    lineWidth: 0,
+                    background: 'red',
+                    color: 'red',
+                },
+                {
+                    id: 'Fat',
+                    type: 'patternLines',
+                    spacing: 32,
+                    rotation: -360,
+                    lineWidth: 0,
+                    background: 'yellow',
+                    color: 'yellow',
+                },
+                {
+                    id: 'Carbs',
+                    type: 'patternLines',
+                    spacing: 32,
+                    rotation: -360,
+                    lineWidth: 0,
+                    background: 'blue',
+                    color: 'blue',
+                },
+            ]}
+            fill={[
+                {
+                    match: {
+                        id: 'Protein',
+                    },
+                    id: 'Protein',
+                },
+                {
+                    match: {
+                        id: 'Fat',
+                    },
+                    id: 'Fat',
+                },
+                {
+                    match: {
+                        id: 'Carbs',
+                    },
+                    id: 'Carbs',
+                },
+            ]}
+            legends={[]}
+            layers={[
+                'arcs',
+                'arcLabels',
+                'arcLinkLabels',
+                'legends',
+                CenteredMetric,
+            ]}
+        />
+    );
+};
 
 export default MyResponsivePie;

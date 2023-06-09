@@ -2,3 +2,11 @@ body {
   background-color: #050801;
   overflow-x: hidden;
 }
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

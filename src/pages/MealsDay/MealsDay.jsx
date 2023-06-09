@@ -1,117 +1,172 @@
-import { useState } from "react";
-import { Form, Row, Col, Dropdown } from "react-bootstrap"
+import { useContext, useEffect, useState } from "react";
+import { Row, Col } from "react-bootstrap"
 import "./MealsDay.css"
-import MealDayPlan from "../../components/MealDayPlan/MealDayPlan";
 import CaloriesFoodSearch from "../../components/CaloriesFoodSearch/CaloriesFoodSearch";
 import nutritionService from "../../services/nutrition.services";
+import { AuthContext } from "../../contexts/auth.context";
+import MealsDayPlanBreakfas from "../../components/MealsDayPlanBreakfas/MealsDayPlanBreakfas";
+import CalendarMealsDay from "../../components/CalendarMealsDay/CalendarMealsDay";
+import MealsDayPlanLunch from "../../components/MealsDayPlanLunch/MealsDayPlanLunch";
+import MealsDayPlanDinner from "../../components/MealsDayPlanDinner/MealsDayPlanDinner";
+import BarMealDayPlan from "../../components/BarMealDayPlan/BarMealDayPlan";
+
 
 
 const MealsDay = () => {
 
-    const [date, setDate] = useState("")
+    const { user } = useContext(AuthContext)
+
+    const [date, setDate] = useState(new Date())
     const [changeMeal, setChangeMeal] = useState()
-    const [display, setDisplay] = useState("none")
-    const [showFood, setShowFood] = useState({
-        Mealdate: "",
+    const [displayBar, setDisplayBar] = useState("")
+    const [displayInf, setDisplayInf] = useState()
+    const [showBringFood, setShowBirnhFood] = useState()
+
+    const [BreakfastCalories, setBreakfastCalories] = useState()
+    const [BreakfastProtein, setBreakfastProtein] = useState()    //Sin uso, es para calcular el total de las proteinas
+    const [LunchCalories, setLunchCalories] = useState()
+
+    const [DinnerCalories, setDinnerCalories] = useState()
+    const [totalCalories, setTotalCalories] = useState(0)
+
+    const [showAmount, setShowAmount] = useState(100)
+
+    // console.log("-----", BreakfastProtein)
+
+
+
+    const [sendFood, setSendFood] = useState({
         breakfast: [],
         lunch: [],
         dinner: [],
         additional: []
     })
 
-
-    const changeShowFood = (elem) => {
-        let copy = { ...showFood }
-        copy[changeMeal].push(elem)
-        setShowFood(copy)
-        setDisplay("")
-
-        nutritionService
-            .saveMealDayInf(showFood)
-            .catch(err => console.log(err))
-    }
-
-    const addButton = (eachMeal) => {
-        setChangeMeal(eachMeal)
-        setDisplay("")
-    }
-
     const handleInputChange = e => {
         const { value } = e.target
         setDate(value)
-        showFood.Mealdate = value
+
     }
 
-    const handleSubmit = e => {
-        e.preventDefault()
+    useEffect(() => {
+
+        if (!BreakfastCalories) setBreakfastCalories(0)
+        !DinnerCalories && setDinnerCalories(0)
+        !LunchCalories && setLunchCalories(0)
+
+        console.log("----", BreakfastCalories, LunchCalories, DinnerCalories)
+        setTotalCalories(BreakfastCalories + LunchCalories + DinnerCalories)
+
+    }, [BreakfastCalories, LunchCalories, DinnerCalories, date])
+
+
+
+    useEffect(() => {
+
+        setDisplayBar("")
+
+        nutritionService
+            .getMealDayInf(date, user._id)
+            .then(({ data }) => setShowBirnhFood(data[0]?.foods))
+            .catch((err) => console.log(err))
+    }, [date]);
+
+
+
+    const deleteProduct = (index, meal) => {
+        nutritionService
+            .deleteMealDayInf({ index, meal }, date)
+            .then(({ data }) => setShowBirnhFood(data?.foods))
+            .catch((err) => console.log(err))
+
     }
 
-    console.log(showFood)
 
+    const changesendFood = (elem) => {
+        sendFood[changeMeal] = [elem]
+        setSendFood(sendFood)
+        setDisplayBar("")
+
+        nutritionService
+            .getMealDayInf(date, user._id)
+            .then(({ data }) => {
+
+                if (!data.length) {
+                    nutritionService
+                        .saveMealDayInf(sendFood, date)
+                        .then(({ data }) => setShowBirnhFood(data.foods))
+                        .catch(err => console.log(err))
+                }
+                else {
+
+                    nutritionService
+                        .editMealDayInf(sendFood, date)
+                        .then(({ data }) => setShowBirnhFood(data.foods))
+                        .catch(err => console.log(err))
+                }
+            })
+    }
+
+    const addButton = (eachMeal) => {
+        setSendFood({
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            additional: []
+        })
+        setChangeMeal(eachMeal)
+        setDisplayBar("")
+    }
+
+    const changeDisplay = () => setDisplayBar("none")
+
+    useEffect(() => {
+        if (displayBar === "none") {
+            setDisplayInf("");
+        } else {
+            setDisplayInf("none");
+        }
+    }, [displayBar]);
 
 
     return (
         <>
-
-            <Form onSubmit={handleSubmit}>
-                <input className="calendar" type="date" id="start" name="trip-start"
-                    value={date} onChange={handleInputChange}
-                    min="2023-01-01" max="2025-12-31" />
-            </Form>
-
+            <CalendarMealsDay handleInputChange={handleInputChange} />
 
             <Row>
-                <Col md={6}>
-                    <div style={{ background: "white", height: "400px", display: "" }}>
+                <Col md={{ span: 4, offset: 1 }} style={{ displayBar: "" }}>
 
-                        {/* DESAYUNO  */}
-                        <Dropdown>
-                            <Dropdown.Toggle className="MealDayDrow" id="dropdown-basic">
-                                Desayuno
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu className="MealDayDrowBody">
-                                <ul>
-                                    {
-                                        showFood
-                                            ?
-                                            showFood.breakfast.map((elem) => {
-                                                return <p>{elem}</p>
-                                            })
-                                            :
-                                            <p>....</p>
-                                    }
+                    <MealsDayPlanBreakfas addButton={addButton} showBringFood={showBringFood}
+                        setBreakfastCalories={setBreakfastCalories} deleteProduct={deleteProduct}
+                        setBreakfastProtein={setBreakfastProtein} showAmount={showAmount} date={date} />
 
-                                </ul>
-                                <button onClick={() => addButton("breakfast")}>+Add</button>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                    <MealsDayPlanLunch addButton={addButton} showBringFood={showBringFood}
+                        setLunchCalories={setLunchCalories} deleteProduct={deleteProduct} showAmount={showAmount} />
 
+                    <MealsDayPlanDinner addButton={addButton} showBringFood={showBringFood}
+                        setDinnerCalories={setDinnerCalories}
+                        deleteProduct={deleteProduct} showAmount={showAmount} />
 
-                        {/* COMIDA  */}
-                        <Dropdown>
-                            <Dropdown.Toggle className="MealDayDrow" id="dropdown-basic">
-                                Comida
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu className="MealDayDrowBody">
-                                <button >+Add</button>
-                            </Dropdown.Menu>
-                        </Dropdown>
-
-
-
-
-                    </div>
                 </Col>
 
-                <Col md={6}>
-                    <div style={{ display: `${display}` }}>
-                        <CaloriesFoodSearch changeShowFood={changeShowFood} />
+
+                <Col md={{ span: 5, offset: 1 }} >
+                    <p className={"totalCalories"}>Total Calories: {totalCalories} kcal</p>
+
+                    <div style={{ display: `${displayBar}` }}>
+                        <CaloriesFoodSearch changesendFood={changesendFood} changeDisplay={changeDisplay} setShowAmount={setShowAmount} showAmount={showAmount} />
                     </div>
 
+                    <div style={{ display: `${displayInf}`, height: "500px" }}>
+                        <BarMealDayPlan
+                            BreakfastCalories={BreakfastCalories}
+                            LunchCalories={LunchCalories}
+                            DinnerCalories={DinnerCalories}
+                            totalCalories={totalCalories} />
+                    </div>
                 </Col>
 
             </Row>
-
         </>
     )
 }

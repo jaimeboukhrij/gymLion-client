@@ -23,7 +23,7 @@ const Nutrition = () => {
                             </Card.Text>
 
                         </Card.Body>
-                        <Button variant="primary">LET'S GET STARTED!</Button>
+                        <Link to={"/nutrition/mealsDay"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
                     </Col>
                 </Row>
             </Card>

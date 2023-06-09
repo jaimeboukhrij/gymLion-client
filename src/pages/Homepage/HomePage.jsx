@@ -6,7 +6,6 @@ import "./HomePage.css"
 function HomePage() {
 
 
-
     return (<div className="homePage">
         <a href="/nutrition" style={{ padding: "85px 100px" }}>
             <span></span>
@@ -16,22 +15,15 @@ function HomePage() {
             <p>Nutrition</p>
             <img src="../../../alimentacionIcon.png" alt="" />
         </a>
-        <a href="" style={{ padding: "85px 60px" }}>
+        <a href="/training" style={{ padding: "85px 120px" }}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <p>Entrenamiento</p>
+            <p>Training</p>
             <img src="../../../entrenamientoIcon.png" alt="" />
         </a>
-        <a href="#" >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <p>LionClub</p>
-            <img src="../../../socialIcon.png" alt="" />
-        </a>
+
 
 
     </div>

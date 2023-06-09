@@ -27,3 +27,14 @@
     background-color: blue;
     width: 100%;
 }
+
+
+.totalCalories {
+
+    color: white;
+    font-family: sans-serif;
+    font-size: 3em;
+    color: red;
+    text-decoration: underline;
+    margin-bottom: 5%;
+}

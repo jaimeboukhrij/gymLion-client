@@ -7,6 +7,10 @@ import PrivateRoute from "./PrivateRoutes"
 import RandomFoodPage from "../pages/RandomFoodPage/RandomFoodPage"
 import SearchFood from "../pages/SearchFood/SearchFood"
 import MealsDay from "../pages/MealsDay/MealsDay"
+import Training from "../pages/Training/Training"
+import ExcerciseDetail from "../pages/ExcerciseDetail/ExcerciseDetail"
+import MyProfile from "../pages/MyProfile/MyProfile"
+import Marks from "../pages/Marks/Marks"
 
 const AppRoutes = () => {
 
@@ -16,11 +20,16 @@ const AppRoutes = () => {
             <Route path="/LogIn" element={<LogInPage />} />
             <Route path="/SingUp" element={<SignupPage />} />
             <Route path="/nutrition" element={<Nutrition />} />
+            <Route path="/training" element={<Training />} />
 
-            <Route path="/nutrition" element={<PrivateRoute />}>
+            <Route element={<PrivateRoute />}>
                 <Route path="/nutrition/randomFood" element={<RandomFoodPage />} />
                 <Route path="/nutrition/searchFood" element={<SearchFood />} />
                 <Route path="/nutrition/mealsDay" element={<MealsDay />} />
+                <Route path="/training/:idExercise" element={<ExcerciseDetail />} />
+                <Route path="/training/marks" element={<Marks />} />
+
+                <Route path="/myProfile" element={<MyProfile />} />
 
             </Route>
 

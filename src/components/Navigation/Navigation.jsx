@@ -23,23 +23,30 @@ function Navigation() {
 
                     </ul>
                 </li>
-                <li><a href="#">Entrenamiento</a></li>
-                <li><a href="#">Social</a></li>
-                <li><a href="#">About us</a></li>
+
+                <li>
+                    <a href="/training">Training</a>
+                    <ul className="menu-item">
+
+                        <li><a href="/training/marks">My marks</a></li>
+
+
+                    </ul>
+                </li>
+
 
                 {
                     user
                         ?
 
                         <li className='lastLiMenu'>
-                            <a href="">Your Profile</a>
+                            <a href="/myProfile">My Profile</a>
                             <ul className="menu-item">
-                                <li><a href="">My Profile</a></li>
                                 <li><a href="#" onClick={logout}>LogOut</a></li>
-
                             </ul>
-                            <li><a href="#"><img src={user.avatar} alt="" /></a></li>
+                            <a href="#"><img src={user.avatar} alt="" /></a>
                         </li>
+
 
                         :
                         <>

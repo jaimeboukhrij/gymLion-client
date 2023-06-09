@@ -1,54 +1,65 @@
 import { useEffect, useState } from "react";
 import foodService from "../../services/food.services";
 import "./SearchFood.css";
+import { Card, Col, Row } from "react-bootstrap";
+import FoodBar from "../../components/FoodBar/FoodBar";
+import SeacrchFoodBar from "../../components/SeacrchFoodBar/SeacrchFoodBar";
+import LeyendFoodSearch from "../../components/LeyendFoodSearch/LeyendFoodSearch";
+import ChangeAmountSeearchFood from "../../components/ChangeAmountSeearchFood/ChangeAmountSeearchFood";
+import CardFoodSearch from "../../components/CardFoodSearch/CardFoodSearch";
 
 const SearchFood = () => {
 
-    const [foodQuery, setFoodQuery] = useState("");
-    const [showFood, setShowFood] = useState("");
+    const [foodId, setFoodId] = useState();
+    const [showFoodInf, setShowFoodInf] = useState()
+    const [showAmount, setShowAmount] = useState(100)
+    const [showModalMenu, setShowModalMenu] = useState("CaloricBreakdown")
+    const [showDataBar, setShowDataBar] = useState()
 
-    const handleQueryChange = ({ target }) => {
-        const { value } = target
-        setFoodQuery(value)
+    const showFoodNut = () => {
         foodService
-            .searchFood(value)
-            .then(({ data }) => setShowFood(data))
+            .getFoodInf(foodId, showAmount)
+            .then(({ data }) => setShowFoodInf(data.nutrition))
             .catch((err) => console.log(err))
-
-
 
     }
 
+
+
+    useEffect(() => {
+        foodId && showFoodNut();
+    }, [foodId, showAmount])
+
+
+
     return (
-        <>
-            <form class="search-bar my-page-specific-style">
-                <input type="search" name="search" pattern=".*\S.*" required value={foodQuery} onChange={handleQueryChange} />
-                <button class="search-btn" type="submit">
-                    <span>Search</span>
-                </button>
-            </form>
+        <Row style={{ marginTop: "10%" }}>
 
-            {
-                showFood
+            <SeacrchFoodBar setFoodId={setFoodId} />
 
-                    ?
+            <Col md={{ span: 5, offset: 0 }}>
 
-                    <div style={{ background: "white" }}>
-                        {
-                            showFood.map(({ id, name, image }) => {
-                                return <img src={`https://spoonacular.com/cdn/ingredients_100x100/${image}`} alt={name} key={id} />
-                            })
-                        }
-                    </div>
+                <Card style={{ background: "#050801" }}>
 
-                    :
+                    <CardFoodSearch setShowModalMenu={setShowModalMenu} />
 
-                    <p>cargando...</p>
-            }
+                    <Card.Body>
+                        <Card.Text style={{ height: "100vh" }}>
 
-        </>
+                            <ChangeAmountSeearchFood setShowAmount={setShowAmount} showAmount={showAmount} />
+                            {showFoodInf && showModalMenu == "CaloricBreakdown" && <LeyendFoodSearch showFoodInf={showFoodInf} foodId={foodId} />}
 
-    );
+
+                        </Card.Text>
+                    </Card.Body>
+
+                </Card>
+
+            </Col>
+
+        </Row>
+
+    )
 }
 
 

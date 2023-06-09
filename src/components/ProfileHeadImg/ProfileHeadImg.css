@@ -1,0 +1,31 @@
+.profileHeadImg {
+    margin: 0 auto;
+    margin-top: 3%;
+    width: 200vh;
+    background-color: #050801;
+    height: 450px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: 30%;
+    border-bottom: 5px solid purple;
+
+}
+
+.profileHeadImg img {
+    width: 200vh;
+    height: 450px;
+}
+
+
+.profileImg {
+    background-color: blue;
+    width: 250px;
+    height: 250px;
+    border-radius: 80%;
+    position: absolute;
+    left: 10%;
+    top: 47%;
+    background-size: cover;
+    background-position: 1%;
+    border-bottom: 5px solid purple;
+}

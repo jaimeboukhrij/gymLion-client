@@ -47,8 +47,6 @@ const DetailsMealdCard = ({ id }) => {
 
     ]
 
-    console.log(dataMeal)
-
     return (
 
         (showIng && dataMeal)

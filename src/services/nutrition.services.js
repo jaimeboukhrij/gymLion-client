@@ -22,14 +22,41 @@ class NutritionService {
     }
 
 
-    getMealDayInf(idUser) {
-        return this.api.get(`/mealDayPlan/${idUser}`)
+    getMealDayInf(date, idOwner) {
+        return this.api.get(`/mealDayPlan/${date}/${idOwner}`)
     }
 
 
-    saveMealDayInf(idMeals) {
-        return this.api.post(`/mealDayPlan`, idMeals)
+    saveMealDayInf(idMeals, date) {
+        return this.api.post(`/mealDayPlan/${date}`, idMeals)
     }
+
+    editMealDayInf(idMeals, date) {
+        return this.api.put(`/mealDayPlan/${date}`, idMeals)
+    }
+
+    deleteMealDayInf({ index, meal }, date) {
+
+        return this.api.put(`/mealDayPlan/delete/${date}`, { index, meal })
+    }
+
+    getUserFavouriteNutrition() {
+        return this.api.get(`/favouriteFood`)
+    }
+
+    saverUserFavouriteNutrition(idFood) {
+
+        return this.api.put(`/favouriteFood/${idFood}`)
+    }
+
+    deleteUserFavouriteFood(idFood) {
+        console.log("en services")
+        return this.api.put(`/favouriteFood/delete/${idFood}`)
+    }
+
+
+
+
 
 
 

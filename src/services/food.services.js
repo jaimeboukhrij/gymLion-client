@@ -20,7 +20,7 @@ class FoodService {
     }
 
     searchFood(query) {
-        return this.api.get(`food/ingredients/autocomplete?query=${query}&number=10&metaInformation=true`);
+        return this.api.get(`food/ingredients/autocomplete?query=${query}&number=8&metaInformation=true`);
 
     }
 
@@ -28,8 +28,17 @@ class FoodService {
         return this.api.get(`/recipes/${recipeId}/ingredientWidget.json?`)
     }
 
-    getFoodInf(foodId) {
-        return this.api.get(`food/ingredients/${foodId}/information?`)
+    getFoodInf(foodId, amount) {
+        return this.api.get(`food/ingredients/${foodId}/information?amount=${amount}&unit=grams`)
+    }
+
+    getRecipeCard(recipeId) {
+        return this.api.get(`/recipes/${recipeId}/card`)
+
+    }
+
+    getNutritionWidget(id) {
+        return this.api.get(`/food/products/${id}/nutritionWidget.png`)
     }
 
 

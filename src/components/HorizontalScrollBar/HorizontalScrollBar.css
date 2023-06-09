@@ -1,0 +1,40 @@
+ .cardScroll:hover {
+     border-top: 4px solid red;
+
+ }
+
+ .cardScroll {
+     padding-top: 5%;
+
+ }
+
+
+ .cardScroll p {
+     margin-top: 7%;
+     text-align: center;
+     color: white;
+     font-family: sans-serif;
+     font-size: 2.2em;
+     text-decoration: none;
+ }
+
+ .scrollImg {
+     width: 100px;
+     margin: 0 auto;
+ }
+
+ .scrollNavigation {
+     padding-top: 2%;
+     padding-right: 5%;
+     padding-left: 5%;
+ }
+
+ .scrollNavigation .right {
+     float: right;
+     width: 100px;
+ }
+
+ .scrollNavigation .left {
+     float: left;
+     width: 100px;
+ }

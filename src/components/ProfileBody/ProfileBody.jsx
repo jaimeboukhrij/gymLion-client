@@ -11,6 +11,8 @@ const ProfileBody = () => {
     const { user } = useContext(AuthContext)
     const [marks, setMarks] = useState()
     const [chestMark, setChestMark] = useState()
+    const [squadMark, setsqueadMark] = useState()
+    const [deadMark, setdeadMark] = useState()
 
 
 
@@ -27,22 +29,43 @@ const ProfileBody = () => {
 
     useEffect(() => {
         topChest()
+        topSquat()
+        topDead()
     }, [marks])
 
     const topChest = () => {
-        // console.log("chestmark", marks?.chest)
-
         const maxChest = marks?.chest?.reduce((max, obj) => {
-
             if (obj?.y > max?.y) {
                 return obj;
             }
             else return max
-
-        });
+        })
         setChestMark(maxChest?.y);
 
     }
+
+    const topSquat = () => {
+        const maxSquat = marks?.squat?.reduce((max, obj) => {
+            if (obj?.y > max?.y) {
+                return obj;
+            }
+            else return max
+        })
+        setsqueadMark(maxSquat?.y);
+
+    }
+
+    const topDead = () => {
+        const topDead = marks?.dead?.reduce((max, obj) => {
+            if (obj?.y > max?.y) {
+                return obj;
+            }
+            else return max
+        })
+        setdeadMark(topDead?.y);
+
+    }
+
 
 
     console.log(chestMark)
@@ -58,21 +81,47 @@ const ProfileBody = () => {
                     <h1>{user.firstName} {user.lastName}</h1>
                 </Col>
 
-                <Col md={{ span: 4, offset: 0 }}>
+                <Col md={{ span: 4, offset: 1 }}>
+
                     <div className="iconCardDetail">
-                        <button><img src="../../body-part.png" alt="" /></button>
-                        <h3 style={{ width: "100px" }}>banca {chestMark} kg</h3>
+                        <Row>
+                            <Col md={{ span: 2, offset: 0 }}>
+                                <button><img src="../../press-de-banca.png" alt="" /></button>
+                            </Col>
+
+                            <Col md={{ span: 6, offset: 4 }}>
+                                <h3 style={{ width: "300px", marginTop: "5%", marginLeft: "3%" }}>banca {chestMark} kg</h3>
+                            </Col>
+                        </Row>
                     </div>
 
                     <div className="iconCardDetail">
-                        <button><img src="../../target.png" alt="" /></button>
-                        <h3>squat</h3>
+                        <Row>
+                            <Col md={{ span: 2, offset: 0 }}>
+                                <button><img src="../../squat.png" alt="" /></button>
+                            </Col>
+
+                            <Col md={{ span: 6, offset: 4 }}>
+                                <h3 style={{ width: "300px", marginTop: "5%", marginLeft: "3%" }}>squad {squadMark} kg</h3>
+                            </Col>
+
+                        </Row>
                     </div>
 
                     <div className="iconCardDetail">
-                        <button><img src="../../equipment.png" alt="" /></button>
-                        <h3>dead</h3>
+                        <Row>
+                            <Col md={{ span: 2, offset: 0 }}>
+
+                                <button><img src="../../leaft.png" alt="" /></button>
+                            </Col>
+                            <Col md={{ span: 6, offset: 4 }}>
+
+                                <h3 style={{ width: "300px", marginTop: "5%", marginLeft: "3%" }}>Dead {deadMark} kg</h3>
+                            </Col>
+                        </Row>
+
                     </div>
+
                 </Col>
             </Row>
         </div>

@@ -90,7 +90,6 @@ const Marks = () => {
                                 setExercise("squat")
                                 setShowModal(true)
                                 setDisplay("none")
-                                window.scrollTo(0, 1500)
 
 
                             }}
@@ -99,6 +98,8 @@ const Marks = () => {
                                 setExercise("squat")
                                 handleShowLine("squat")
                                 setDisplay("")
+                                window.scrollTo(0, 1500)
+
 
 
                             }}>Your marks</Button>
@@ -117,7 +118,6 @@ const Marks = () => {
                                 setExercise("dead")
                                 setShowModal(true)
                                 setDisplay("none")
-                                window.scrollTo(0, 1500)
 
                             }}
                             >add marks</Button>
@@ -125,6 +125,8 @@ const Marks = () => {
                                 setExercise("dead")
                                 handleShowLine("dead")
                                 setDisplay("")
+                                window.scrollTo(0, 1500)
+
                             }}>Your marks</Button>
                         </Stack>
                         <h3 className="prueba">Barbell Deadlift</h3>

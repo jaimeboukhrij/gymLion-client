@@ -33,31 +33,38 @@ const SearchFood = () => {
 
 
     return (
-        <Row style={{ marginTop: "10%" }}>
+        <>
+            <h1 style={{
+                textAlign: "center", marginTop: "8%", marginBottom: "-5%", fontSize: "5em", color: "purple",
+                fontWeight: "bold"
+            }}>Search Food</h1>
 
-            <SeacrchFoodBar setFoodId={setFoodId} />
+            <Row style={{ marginTop: "10%" }}>
 
-            <Col md={{ span: 5, offset: 0 }}>
+                <SeacrchFoodBar setFoodId={setFoodId} />
 
-                <Card style={{ background: "#050801" }}>
+                <Col md={{ span: 5, offset: 0 }}>
 
-                    <CardFoodSearch setShowModalMenu={setShowModalMenu} />
+                    <Card style={{ background: "#050801" }}>
 
-                    <Card.Body>
-                        <Card.Text style={{ height: "100vh" }}>
+                        <CardFoodSearch setShowModalMenu={setShowModalMenu} />
 
-                            <ChangeAmountSeearchFood setShowAmount={setShowAmount} showAmount={showAmount} />
-                            {showFoodInf && showModalMenu == "CaloricBreakdown" && <LeyendFoodSearch showFoodInf={showFoodInf} foodId={foodId} />}
+                        <Card.Body>
+                            <Card.Text style={{ height: "100vh" }}>
+
+                                {showFoodInf && showModalMenu == "CaloricBreakdown" && <ChangeAmountSeearchFood setShowAmount={setShowAmount} showAmount={showAmount} />}
+                                {showFoodInf && showModalMenu == "CaloricBreakdown" && <LeyendFoodSearch showFoodInf={showFoodInf} foodId={foodId} />}
 
 
-                        </Card.Text>
-                    </Card.Body>
+                            </Card.Text>
+                        </Card.Body>
 
-                </Card>
+                    </Card>
 
-            </Col>
+                </Col>
 
-        </Row>
+            </Row>
+        </>
 
     )
 }

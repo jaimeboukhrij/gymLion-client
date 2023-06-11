@@ -24,6 +24,15 @@ function HomePage() {
             <img src="../../../entrenamientoIcon.png" alt="" />
         </a>
 
+        <a href="/social" style={{ padding: "85px 80px" }}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>Social Club</p>
+            <img src="../../../socialIcon.png" alt="" />
+        </a>
+
 
 
     </div>

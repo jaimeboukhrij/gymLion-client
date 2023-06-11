@@ -5,6 +5,7 @@ import { Form, Button, Row, Col } from "react-bootstrap"
 import authService from './../../services/auth.services'
 import { useNavigate } from "react-router-dom"
 import ImageUploader from "../ImageUploader/ImageUploader"
+import getChat from "../../services/chat.services";
 
 const SignupForm = () => {
 
@@ -21,12 +22,14 @@ const SignupForm = () => {
     const handleInputChange = e => {
         const { value, name } = e.target
 
+
         setSignupData({ ...signupData, [name]: value })
     }
 
     const handleSubmit = e => {
         e.preventDefault()
 
+        getChat(signupData.email, signupData.password)
 
 
         authService

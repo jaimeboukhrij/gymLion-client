@@ -11,6 +11,7 @@ import Training from "../pages/Training/Training"
 import ExcerciseDetail from "../pages/ExcerciseDetail/ExcerciseDetail"
 import MyProfile from "../pages/MyProfile/MyProfile"
 import Marks from "../pages/Marks/Marks"
+import Social from "../pages/Social/Social"
 
 const AppRoutes = () => {
 
@@ -28,6 +29,9 @@ const AppRoutes = () => {
                 <Route path="/nutrition/mealsDay" element={<MealsDay />} />
                 <Route path="/training/:idExercise" element={<ExcerciseDetail />} />
                 <Route path="/training/marks" element={<Marks />} />
+                <Route path="/social" element={<Social />} />
+
+
 
                 <Route path="/myProfile" element={<MyProfile />} />
 

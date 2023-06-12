@@ -1,0 +1,15 @@
+.socialFriends {
+    background: #F7F9F9;
+    width: 95%;
+    border: 1px solid grey;
+    border-radius: 40px;
+    height: 80vh;
+    padding: 10px;
+}
+
+.socialFriends h2 {
+    text-align: center;
+    font-size: 3em;
+    margin-top: 2%;
+
+}

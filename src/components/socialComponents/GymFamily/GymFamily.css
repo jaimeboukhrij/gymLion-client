@@ -1,0 +1,12 @@
+.membersCard img {
+    width: 60px;
+    height: 130px;
+    object-fit: cover;
+    clip-path: circle(30%);
+    margin-right: 5%;
+}
+
+.membersCard {
+    margin-bottom: -3%;
+    margin-left: 7%;
+}

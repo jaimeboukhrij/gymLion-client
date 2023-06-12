@@ -1,12 +1,12 @@
 .homePage {
     min-width: 700px;
     height: 795px;
-    background: #050801;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
 
-    background: #050801;
+    background: white;
     background-image: url(../../../public/lion2.png);
     background-repeat: no-repeat;
     background-size: cover;

@@ -27,7 +27,7 @@
 }
 
 nav {
-    background-color: #050801;
+    background-color: white;
 }
 
 
@@ -49,7 +49,7 @@ nav {
 }
 
 .menu>li {
-    background-color: #050801;
+    background-color: white;
     float: left;
     position: relative;
     transform: skewX(25deg);
@@ -65,11 +65,12 @@ nav {
 
 .menu a {
     display: block;
-    color: #fff;
+    color: black;
+    font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
     font-family: Arial, Helvetica;
-    font-size: 24px;
+    font-size: 27px;
 }
 
 .menu li:hover {

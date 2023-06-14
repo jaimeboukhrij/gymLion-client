@@ -2,7 +2,6 @@
 import { Col, Row } from "react-bootstrap"
 import SidebarSocial from "../../components/socialComponents/SidebarSocial/SidebarSocial"
 import "./Social.css"
-import SearchGym from "../../components/socialComponents/SearchGym/SearchGym"
 import { useContext, useEffect, useState } from "react"
 import userApiServices from "../../services/user.services"
 import { AuthContext } from "../../contexts/auth.context"

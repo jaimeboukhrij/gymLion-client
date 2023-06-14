@@ -31,10 +31,7 @@ const Social = () => {
         document.body.scroll = 'no';  // Para algunos navegadores antiguos
     }
 
-    const updateSelectedGym = (gymId) => {
-        setSelectedGym(gymId);
-        setShowModal("none")
-    }
+
 
     useEffect(() => { selectedGym && userApiServices.addGym(selectedGym) }, [selectedGym])
 
@@ -53,10 +50,7 @@ const Social = () => {
 
             <Col md={{ span: 5, offset: 1 }}>
 
-                <div style={{ display: `${showModal}` }}>
-                    <h2> Before we begin, we need to know about your gym...</h2>
-                    <SearchGym updateSelectedGym={updateSelectedGym} />
-                </div>
+
 
                 <div style={{ width: "100%" }}>
                     <Post homeClick={homeClick} />

@@ -35,7 +35,7 @@ const ProfileExercise = () => {
     return (
         <div style={{ marginTop: "20%" }}>
             <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '150px' }} fontWeight={700} color="white" mb="-300px" mt="-180px">
-                <span style={{ color: 'purple', textTransform: 'capitalize' }}>Your Favourites Exercices</span>
+                <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>Your Favourites Exercices</span>
             </Typography>
             {showExerciseProfile.length > 0 && <ExcerciseCardProfile showExerciseProfile={showExerciseProfile} />}
         </div>

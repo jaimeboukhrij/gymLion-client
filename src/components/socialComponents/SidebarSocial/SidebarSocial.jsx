@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./SidebarSocial.css"
 import { Button, Col, Container, Modal, Row } from "react-bootstrap"
 import ModalPublication from "../ModalPublication/ModalPublication";
+import { Link } from "react-router-dom";
 
 
 const SidebarSocial = ({ setHomeClick, homeClick }) => {
@@ -39,13 +40,15 @@ const SidebarSocial = ({ setHomeClick, homeClick }) => {
 
 
             <div className="boxSidebar">
-                <Row>
-                    <Col className={"socialNavbarImg"} md={{ offset: 2, span: 3 }}>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAZ9JREFUSEvt1r9LVmEUwPGPtDi0GDnY4OZSBE3tpSS4KDTU1tDQkENDEE3V4hAE1tAgjg42BEZEBWH/QISSi5O0RoGLQ0Q/OHKuPO/F1x/c19eh91nu5bnnnO9zfjz3nD7HtPqOiWs/8AAu4BxOH/CQ37GGFWy202kHPoNnuHpAWDuxF5hGHKZl7QY+iw8Yagit1DcwinjurDp4GJ8wmBIv8RzLhzxEgMLTqdQL6MXS8zp4CZMpfBdPDgmsiz/Aw9ycw61KoASHt1/zQ+TmekNopf4O4/iFKNat+FCCb2I+paOSVzsEvoL3aWsCb+vg+5hJgRP40yHwKfxIW3fwtA6OXERO6vud4P9NI4+qnJeh7oE7EeLKRi/ULfe4V1xHUVwR1bjLXQl1dLpv6cXt7HZdAV/DYoIv42M3PD6JzxjJMSjGp99HDe7Ha4ylt/fweLd+XF6nSw0rK4aJG9l/w9SbHDC2vd3L44bcFvVXiDz/LHfL7lQWQVNwTBtfMIsFVP/qHbslON7PIxp3kxVXZ70qonaG9hvomxxgT93/D/wPwsNYHwYJ4jYAAAAASUVORK5CYII=" />                    </Col>
-                    <Col className={"socialNavbarText"} md={{ offset: 0, span: 3 }}>
-                        Message
-                    </Col>
-                </Row>
+                <Link to={"/social/chat"}>
+                    <Row>
+                        <Col className={"socialNavbarImg"} md={{ offset: 2, span: 3 }}>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAZ9JREFUSEvt1r9LVmEUwPGPtDi0GDnY4OZSBE3tpSS4KDTU1tDQkENDEE3V4hAE1tAgjg42BEZEBWH/QISSi5O0RoGLQ0Q/OHKuPO/F1x/c19eh91nu5bnnnO9zfjz3nD7HtPqOiWs/8AAu4BxOH/CQ37GGFWy202kHPoNnuHpAWDuxF5hGHKZl7QY+iw8Yagit1DcwinjurDp4GJ8wmBIv8RzLhzxEgMLTqdQL6MXS8zp4CZMpfBdPDgmsiz/Aw9ycw61KoASHt1/zQ+TmekNopf4O4/iFKNat+FCCb2I+paOSVzsEvoL3aWsCb+vg+5hJgRP40yHwKfxIW3fwtA6OXERO6vud4P9NI4+qnJeh7oE7EeLKRi/ULfe4V1xHUVwR1bjLXQl1dLpv6cXt7HZdAV/DYoIv42M3PD6JzxjJMSjGp99HDe7Ha4ylt/fweLd+XF6nSw0rK4aJG9l/w9SbHDC2vd3L44bcFvVXiDz/LHfL7lQWQVNwTBtfMIsFVP/qHbslON7PIxp3kxVXZ70qonaG9hvomxxgT93/D/wPwsNYHwYJ4jYAAAAASUVORK5CYII=" />                    </Col>
+                        <Col className={"socialNavbarText"} md={{ offset: 0, span: 3 }}>
+                            Message
+                        </Col>
+                    </Row>
+                </Link>
             </div>
 
             <div className="boxSidebar">

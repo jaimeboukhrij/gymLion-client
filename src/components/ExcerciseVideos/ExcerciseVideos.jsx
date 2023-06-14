@@ -29,7 +29,7 @@ const ExcerciseVideos = ({ showExcercise }) => {
 
         <Row className={"videoSection"}>
 
-            <Typography className={"videoSectionTitle"} sx={{ fontSize: { lg: '44px', xs: '25px' } }} fontWeight={700} color="white" mb="43px" ml="150px">
+            <Typography className={"videoSectionTitle"} sx={{ fontSize: { lg: '44px', xs: '25px' } }} fontWeight={700} color="black" mb="43px" ml="150px">
                 Watch <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>{showExcercise?.name}</span> exercise videos
             </Typography>
 
@@ -43,7 +43,7 @@ const ExcerciseVideos = ({ showExcercise }) => {
                             <Link to={`https://www.youtube.com/watch?v=${video.videoId}`}>
 
                                 <img style={{ borderTopLeftRadius: '20px' }} src={`${video.thumbnails[0].url}`} alt="" />
-                                <Typography sx={{ fontSize: { lg: '28px', xs: '18px' } }} fontWeight={600} color="white" mt={"20px"}>
+                                <Typography sx={{ fontSize: { lg: '28px', xs: '18px' } }} fontWeight={600} color="black" mt={"20px"}>
                                     {video.title}
                                 </Typography>
 

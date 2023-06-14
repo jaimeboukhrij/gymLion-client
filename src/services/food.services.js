@@ -20,7 +20,7 @@ class FoodService {
     }
 
     searchFood(query) {
-        return this.api.get(`food/ingredients/autocomplete?query=${query}&number=8&metaInformation=true`);
+        return this.api.get(`food/ingredients/autocomplete?query=${query}&number=6&metaInformation=true`);
 
     }
 

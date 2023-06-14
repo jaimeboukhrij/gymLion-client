@@ -12,6 +12,7 @@ import ExcerciseDetail from "../pages/ExcerciseDetail/ExcerciseDetail"
 import MyProfile from "../pages/MyProfile/MyProfile"
 import Marks from "../pages/Marks/Marks"
 import Social from "../pages/Social/Social"
+import Chat from "../components/socialComponents/Chat/Chat"
 
 const AppRoutes = () => {
 
@@ -30,6 +31,7 @@ const AppRoutes = () => {
                 <Route path="/training/:idExercise" element={<ExcerciseDetail />} />
                 <Route path="/training/marks" element={<Marks />} />
                 <Route path="/social" element={<Social />} />
+                <Route path="/social/chat" element={<Chat />} />
 
 
 

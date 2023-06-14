@@ -4,7 +4,7 @@ import { Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import trainingApiServices from "../../services/trainingApi.services"
 
-const CardDetailEx = ({ showExcercise }) => {
+const CardDetailEx = ({ showExcercise, idExercise }) => {
 
     const [checkFavourite, setCheckFavourite] = useState(false)
 
@@ -17,7 +17,7 @@ const CardDetailEx = ({ showExcercise }) => {
                 .then(({ data }) => data.includes(showExcercise?.id) && setCheckFavourite(true))
                 .catch(err => console.log(err))
 
-    }, [showExcercise,])
+    }, [showExcercise, idExercise])
 
 
     useEffect(() => {

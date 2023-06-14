@@ -1,4 +1,64 @@
 .post {
-    height: 100vh;
-    border: 1px solid blue;
+    height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+}
+
+.eachPost:hover {
+    background-color: #e5e7e7;
+    border-radius: 50px;
+}
+
+.post::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+}
+
+.post::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.eachPost {
+    margin-bottom: 7%;
+    padding-left: 4%;
+}
+
+.eachPostProfileImg {
+    width: 40px;
+    height: 100px;
+    object-fit: cover;
+    clip-path: circle(30%);
+    margin-right: 5%;
+}
+
+
+.eachPost .user {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 5%;
+}
+
+
+.eachPost .text {
+    width: 600px;
+    text-align: justify;
+    float: left;
+    margin-top: 2%;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+
+}
+
+
+.eachPost .img {
+    float: left;
+    clip-path: none;
+    margin-top: 3%;
+    border: 1px solid transparent;
+    clip-path: circle(69%);
+
 }

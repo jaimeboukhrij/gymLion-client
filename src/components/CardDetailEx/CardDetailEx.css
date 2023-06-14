@@ -12,7 +12,7 @@
 }
 
 .textCardDetail h4 {
-    color: white;
+    color: black;
     text-align: justify;
     margin-top: 5%;
     margin-left: 6%;
@@ -28,7 +28,7 @@
 }
 
 .iconCardDetail button {
-    background: #FFF2DB;
+    background: #f4aaaa;
     border-radius: 50%;
 
     width: 80px;
@@ -39,7 +39,7 @@
 .iconCardDetail h3 {
     width: 80px;
     float: right;
-    color: white;
+    color: black;
     text-transform: uppercase;
     margin-right: 70%;
     margin-top: 2%;

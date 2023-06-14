@@ -12,7 +12,7 @@ function Navigation() {
 
     return (
 
-        <nav style={{ display: "" }}>
+        <nav style={{ display: "", marginBottom: "2%" }}>
             <ul className="menu nav-menu">
                 <li><a href="/">Home</a></li>
                 <li>
@@ -26,18 +26,24 @@ function Navigation() {
                 </li>
 
 
+                <li>
+                    <a href="/social">Social</a>
+
+                </li>
+
+
                 {
                     user
                         ?
                         <>
-                            <li className='lastLiMenu'>
+                            <li style={{ height: "95px", width: "350px" }}>
                                 <a href="/myProfile">My Profile</a>
 
                                 <a href="#"><img src={user.avatar} alt="" /></a>
                             </li>
 
 
-                            <li><a href="#" onClick={logout}>LogOut</a></li>
+                            <li ><a href="#" onClick={logout}>LogOut</a></li>
 
 
 
@@ -59,7 +65,6 @@ function Navigation() {
 }
 
 export default Navigation;
-
 
 
 

@@ -52,7 +52,10 @@ const HorizontalScrollbar = ({ showBodyPartList, setShowBodyPart }) => {
                             <>
                                 <Link key={index} onClick={() => {
                                     setShowBodyPart(part)
-                                    window.scrollTo(0, 1000)
+                                    setTimeout(() => {
+                                        window.scrollTo(0, 2100);
+                                    }, 500)
+
                                 }}>
                                     <div className="cardScroll">
                                         <img className='scrollImg' src="../../gym.png" alt="" />
@@ -67,8 +70,8 @@ const HorizontalScrollbar = ({ showBodyPartList, setShowBodyPart }) => {
 
 
             <div className="scrollNavigation">
-                <button className='left' onClick={previousSlide}><img src="../../left-arrow.png" alt="" /></button>
                 <button className='right' onClick={nextSlide}><img src="../../right-arrow.png" alt="" /></button>
+                <button className='left' onClick={previousSlide}><img src="../../left-arrow.png" alt="" /></button>
             </div>
 
         </div >

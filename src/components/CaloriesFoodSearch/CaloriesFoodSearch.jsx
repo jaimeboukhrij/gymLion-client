@@ -60,7 +60,7 @@ const CaloriesFoodSearch = ({ changesendFood, changeDisplay, setShowAmount, show
 
                 &&
 
-                <div style={{ background: "#050801" }}>
+                <div >
 
                     <Row>
                         {
@@ -89,29 +89,34 @@ const CaloriesFoodSearch = ({ changesendFood, changeDisplay, setShowAmount, show
                             })
                         }
 
-                        <Modal show={showModal} onHide={() => setShowModal(false)} size="lm">
-                            <Modal.Header closeButton >
+                        <Modal
+                            show={showModal}
+                            onHide={() => setShowModal(false)}
+                            size="xl"
+                            className="transparent-modal"
+                        >
+                            <Modal.Header closeButton>
                                 <h3 style={{ textTransform: "capitalize", fontWeight: "bold" }}>{showNameFood}</h3>
                             </Modal.Header>
-                            <Modal.Body closeButton style={{ background: "black", height: "700px", width: "700px" }}>
-
-                                <button onClick={() => {
-                                    changesendFood(foodId)
-                                    setFoodQuery("")
-                                    setShowFood("")
-                                    setShowModal(false)
-                                }}> +Add
+                            <Modal.Body closeButton style={{ height: "700px" }}>
+                                <button
+                                    onClick={() => {
+                                        changesendFood(foodId);
+                                        setFoodQuery("");
+                                        setShowFood("");
+                                        setShowModal(false);
+                                    }}
+                                >
+                                    +Add
                                 </button>
-
                                 <ChangeAmountSeearchFood setShowAmount={setShowAmount} showAmount={showAmount} />
                                 {showFoodInf && <LeyendFoodSearch showFoodInf={showFoodInf} />}
-
                             </Modal.Body>
                         </Modal>
 
                     </Row>
 
-                </div>
+                </div >
 
 
             }

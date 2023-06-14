@@ -3,82 +3,83 @@ import "./Nutrition.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom'
+import Nutritionheader from "../../components/Nutritionheader/Nutritionheader";
 
 const Nutrition = () => {
 
     return (
         <>
+
+
+            <Nutritionheader />
+
+
             <Card className="aliCard">
 
-                <Card.Title as={"h2"}>NUTRITION TRACKER: TRACK YOUR DAILY MEALS AND STAY INFORMED</Card.Title>
                 <Row>
-                    <Col md={4}>
-                        <Card.Img variant="top" src=",,/../../../picture.webp" />
+                    <Col md={7}>
+                        <Card.Img variant="top" src=",,/../../../tupper.jpg" />
                     </Col>
-                    <Col md={8}>
+                    <Col md={5} style={{ paddingLeft: " 5%" }}>
+
+                        <Card.Title as={"h2"}>NUTRITION TRACKER</Card.Title>
                         <Card.Body>
-
-                            <Card.Text>
-                                The website allows you to track your daily meals and provides detailed information on nutrients and macronutrients. It calculates the total calories consumed in a day and offers a clear summary of your nutritional intake. It helps make informed decisions and maintain a healthy lifestyle.
-                            </Card.Text>
-
+                            <p>
+                                The website allows you to track your daily meals and provides detailed information on nutrients and
+                                macronutrients. It calculates the total calories consumed in a day and offers a clear summary
+                                of your nutritional intake.
+                            </p>
                         </Card.Body>
                         <Link to={"/nutrition/mealsDay"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
                     </Col>
                 </Row>
             </Card>
 
-            <Card className="aliCard inv">
+            <Card className="aliCard  " style={{ background: "white" }}>
 
-                <Card.Title as={"h2"}>DON'T KNOW WHAT TO EAT? WE'LL THINK FOR YOU.</Card.Title>
                 <Row>
+                    <Col md={7}>
+                        <Card.Img variant="top" src=",,/../../../foodDetails.jpg" />
+                    </Col>
 
-                    <Col md={8}>
+                    <Col md={5} style={{ paddingLeft: " 5%" }}>
+
+                        <Card.Title as={"h2"}>FOOD DETAILS</Card.Title>
                         <Card.Body>
-
-                            <Card.Text as={"p"}>
-                                Discover personalized recipes based on your caloric needs.
-                                Find delicious and healthy dishes tailored to your calorie requirements.
-                                Simply input your desired calories and get customized recipes.
-                                Find the culinary inspiration you need on our website.
-                            </Card.Text>
-
+                            <p>
+                                The website allows you to track your daily meals and provides detailed information on nutrients and
+                                macronutrients. It calculates the total calories consumed in a day and offers a clear summary
+                                of your nutritional intake.
+                            </p>
                         </Card.Body>
-                        <Link to={"/nutrition/randomFood"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
+                        <Link to={"/nutrition/searchFood"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
                     </Col>
-
-                    <Col md={4}>
-                        <Card.Img as={"img"} variant="top" src=",,/../../../picture.webp" />
-                    </Col>
-                </Row>
-            </Card >
-
-            <Card className="aliCard ">
-
-                <Card.Title as={"h2"}>NUTRIFACTS: DISCOVER THE CALORIES AND MACRONUTRIENTS OF ANY FOOD</Card.Title>
-                <Row>
-
-
-                    <Col md={4}>
-                        <Card.Img as={"img"} variant="top" src=",,/../../../macro.jpg" />
-                    </Col>
-                    <Col md={8}>
-                        <Card.Body>
-
-                            <Card.Text as={"p"}>
-                                Explore the nutritional information of any food with ease.
-                                Get detailed nutrition facts in seconds.
-                                With our website, you can find out the calorie content and macronutrient breakdown of any food you desire.
-                                Simply enter the name of the food and get instant, accurate results.
-                            </Card.Text>
-
-                            <Link to={"/nutrition/searchFood"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
-                        </Card.Body>
-                    </Col>
-
 
                 </Row>
             </Card>
+
+
+            <Card className="aliCard">
+
+                <Row>
+                    <Col md={7}>
+                        <Card.Img variant="top" src=",,/../../../mealdayplan.jpg" />
+
+                    </Col>
+                    <Col md={5} style={{ paddingLeft: " 5%" }}>
+
+                        <Card.Title as={"h2"}>GET YOUR MEALDAY</Card.Title>
+                        <Card.Body>
+                            <p>
+                                The website allows you to track your daily meals and provides detailed information on nutrients and
+                                macronutrients. It calculates the total calories consumed in a day and offers a clear summary
+                                of your nutritional intake.
+                            </p>
+                        </Card.Body>
+                        <Link to={"/nutrition/randomFood"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
+                    </Col>
+                </Row>
+            </Card >
 
 
 

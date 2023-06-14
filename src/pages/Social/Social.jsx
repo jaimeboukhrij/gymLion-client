@@ -21,7 +21,15 @@ const Social = () => {
     const [homeClick, setHomeClick] = useState(false)
 
 
-    useEffect(() => { userApiServices.getOneUser(user._id).then(({ data }) => data?.gym === "" && setShowModal("")) }, [])
+    useEffect(() => {
+        userApiServices.getOneUser(user._id).then(({ data }) => data?.gym === "" && setShowModal(""))
+        disableScroll()
+    }, [])
+
+    function disableScroll() {
+        document.documentElement.style.overflow = 'hidden';  // Para la mayoría de los navegadores
+        document.body.scroll = 'no';  // Para algunos navegadores antiguos
+    }
 
     const updateSelectedGym = (gymId) => {
         setSelectedGym(gymId);
@@ -36,7 +44,7 @@ const Social = () => {
 
     return (
 
-        <Row style={{ paddingTop: "5%" }}>
+        <Row style={{ paddingTop: "5%", overflowY: "hidden" }}>
 
             <Col md={{ span: 2, offset: 1 }}>
                 <SidebarSocial setHomeClick={setHomeClick} homeClick={homeClick} />

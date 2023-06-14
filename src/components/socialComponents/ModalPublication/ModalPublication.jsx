@@ -50,7 +50,7 @@ const ModalPublication = ({ showModal, setShowModal }) => {
             }
         }
         else {
-            setUrlCloudinary()
+            setUrlCloudinary("")
             setSelectedImage(null)
 
         }
@@ -60,13 +60,12 @@ const ModalPublication = ({ showModal, setShowModal }) => {
     };
 
     useEffect(() => {
-        if (text || urlCloudinary) {
-            console.log("dentro del if")
-            socialService
-                .savePost({ text, urlCloudinary })
-                .then(() => setText())
-                .catch(e => console.log(e));
-        }
+        console.log("dentro del if", urlCloudinary)
+        socialService
+            .savePost({ text, urlCloudinary })
+            .catch(e => console.log(e));
+        setText()
+
     }, [urlCloudinary]);
 
     return (

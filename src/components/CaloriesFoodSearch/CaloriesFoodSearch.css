@@ -1,6 +1,5 @@
 #buttonMealDayPlan {
-    background-color: rgb(38, 37, 37);
-    color: white;
+    color: black;
     width: 500px;
     margin-bottom: 2px;
     font-size: 1.6em;
@@ -26,4 +25,24 @@
 #search-bar::placeholder {
     color: white;
     font-size: 0.8em;
+}
+
+.transparent-modal .modal-content {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.transparent-modal .modal-dialog {
+    background-color: transparent;
+}
+
+.transparent-modal .modal-header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.transparent-modal .modal-body {
+    background-color: rgba(255, 255, 255, 0);
+    /* Color de fondo con opacidad */
 }

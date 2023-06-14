@@ -7,13 +7,7 @@
     width: 700px;
     max-height: 600px;
     margin-top: 4%;
-    opacity: .5;
-    box-shadow: 25px 15px 0px red,
-        0 0 25px red,
-        0 0 90px red,
-        0 0 200px red;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-    filter: hue-rotate(270deg);
+
 
 }
 
@@ -21,26 +15,22 @@
 
 .SingUpcard {
 
-    margin-top: 2%;
+    margin-top: 0%;
     margin-left: 3%;
     display: flex;
     justify-content: right;
     align-items: center;
 
     width: 800px;
-    height: 750px;
+    height: 650px;
     padding-top: 30px;
     flex-direction: column;
     gap: 35px;
     border-radius: 15px;
     background: #e3e3e3;
-    box-shadow: 0 0 5px red,
-        0 0 25px red,
-        0 0 90px red,
-        0 0 200px red;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-    filter: hue-rotate(270deg);
+    box-shadow: 0 0 5px red;
     border-radius: 8px;
+    overflow: auto;
 }
 
 .title {

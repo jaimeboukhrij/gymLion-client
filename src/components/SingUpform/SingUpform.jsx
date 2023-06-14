@@ -14,8 +14,11 @@ const SignupForm = () => {
         password: '',
         firstName: '',
         secondName: "",
+        userName: "",
         avatar: ""
     })
+
+    const [getAvatar, setGetAvatar] = useState()
 
     const navigate = useNavigate()
 
@@ -29,7 +32,7 @@ const SignupForm = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        getChat(signupData.email, signupData.password)
+        getAvatar && getChat(signupData.userName, signupData.password, getAvatar)
 
 
         authService
@@ -45,7 +48,7 @@ const SignupForm = () => {
     }, []);
 
 
-    const { email, password, firstName, lastName } = signupData
+    const { email, password, firstName, lastName, userName } = signupData
 
     return (
 
@@ -61,8 +64,6 @@ const SignupForm = () => {
                 </div>
 
 
-
-
                 <div className="inputBox">
                     <input type="password" value={password} onChange={handleInputChange} name="password" required="required" />
                     <span>Password</span>
@@ -71,21 +72,26 @@ const SignupForm = () => {
 
                 <div className="inputBox">
                     <input type="text" value={firstName} onChange={handleInputChange} name="firstName" required="required" />
-                    <span>Nombre</span>
+                    <span>First Name</span>
                 </div>
 
                 <div className="inputBox">
                     <input type="text" value={lastName} onChange={handleInputChange} name="lastName" required="required" />
-                    <span>Apellido</span>
+                    <span>Last Name</span>
                 </div>
 
                 <div className="inputBox">
-                    <ImageUploader profImg={avatar} />
+                    <input type="text" value={userName} onChange={handleInputChange} name="userName" required="required" />
+                    <span>UserName</span>
+                </div>
+
+                <div className="inputBox">
+                    <ImageUploader profImg={avatar} setGetAvatar={setGetAvatar} />
                     <span>Imagen Perfil</span>
                 </div>
 
                 <button className="enter">Enter</button>
-            </div>s
+            </div>
 
         </Form>
     )

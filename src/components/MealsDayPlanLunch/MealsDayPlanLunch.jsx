@@ -48,7 +48,7 @@ const MealsDayPlanLunch = ({ addButton, showBringFood, setLunchCalories, deleteP
     return (
 
         <div className={"MyMealslunch"}>
-            <h2>lunch <span>{showLunchCalories}</span> </h2>
+            <h2>Lunch <span>{showLunchCalories}</span> </h2>
             <ul>
                 {showLunch.map((elem, index) => {
                     const calories = elem.nutrition.nutrients.find((elem) =>

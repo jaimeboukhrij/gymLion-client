@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Image } from 'cloudinary-react';
 
-const ImageUploader = ({ profImg }) => {
+const ImageUploader = ({ profImg, setGetAvatar }) => {
     const [imageUrl, setImageUrl] = useState('');
 
     useEffect(() => {
@@ -11,7 +11,9 @@ const ImageUploader = ({ profImg }) => {
     }, [imageUrl, profImg]);
 
     const handleUpload = (event) => {
+
         const file = event.target.files[0];
+        setGetAvatar(file)
         const formData = new FormData();
         formData.append('file', file);
         formData.append('upload_preset', 'ysg6er97');

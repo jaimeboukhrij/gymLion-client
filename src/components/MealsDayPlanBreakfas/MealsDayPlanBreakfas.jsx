@@ -65,17 +65,16 @@ const MealsDayPlanBreakfas = ({ addButton, showBringFood, setBreakfastCalories, 
         <div className={"MyMealsBreakFast"}>
             <h2>Breakfast <span>{showBreakfastCalories}</span> </h2>
             <ul>
-                {showbreakfast.map((elem, index) => {
-                    const calories = elem.nutrition.nutrients.find((elem) =>
-                        elem.name.includes("Calories")
-                    );
+                {
+                    showbreakfast.map((elem, index) => {
+                        const calories = elem.nutrition.nutrients.find((elem) => elem.name.includes("Calories"));
 
-                    return (
-                        <p key={index}>
-                            {elem.name} ({elem.amount}g) <button onClick={() => deleteProduct(index, "breakfast")} id="deleteBreakfast">Delete</button> <span>{parseInt(calories.amount)}</span>
-                        </p>
-                    );
-                })}
+                        return (
+                            <p key={index}>
+                                {elem.name} ({elem.amount}g) <button onClick={() => deleteProduct(index, "breakfast")} id="deleteBreakfast">Delete</button> <span>{parseInt(calories.amount)}</span>
+                            </p>
+                        );
+                    })}
             </ul>
             <button onClick={() => addButton("breakfast")}>+Add Food</button>
         </div>

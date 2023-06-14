@@ -24,13 +24,13 @@ const SimilarExercise = ({ showExcercise }) => {
     return (
         <div>
 
-            <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '150px' }} fontWeight={700} color="white" mb="-300px" mt="-180px">
+            <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '150px' }} fontWeight={700} color="black" mb="-300px" mt="-180px">
                 Similar <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>Target Muscle</span> exercises
             </Typography>
             <ExerciceCard similarExerTarget={similarExerTarget} />
 
 
-            <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '150px' }} fontWeight={700} color="white" mt="180px" mb="-300px">
+            <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '150px' }} fontWeight={700} color="black" mt="30px" mb="-300px">
                 Similar <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>Equipment</span> exercises
             </Typography>
             <ExerciceCard similarExerEquipament={similarExerEquipament} />

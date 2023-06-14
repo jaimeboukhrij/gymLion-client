@@ -8,13 +8,13 @@ import { Col, Row } from "react-bootstrap";
 const ExerciceCard = ({ showBodyPart, showBodyTagList, similarExerTarget, similarExerEquipament }) => {
 
     const [showExercise, setShowExercise] = useState([]);
-    const [counter, setCounter] = useState(9);
+    const [counter, setCounter] = useState(3);
 
     useEffect(() => {
         if (showBodyPart) {
             training
                 .getOneBodyPartExer(showBodyPart)
-                .then(({ data }) => { setShowExercise(data.slice(counter - 6, counter)) })
+                .then(({ data }) => { setShowExercise(data.slice(counter - 3, counter)) })
                 .catch(err => console.log(err))
         }
     }, [showBodyPart, counter])
@@ -22,13 +22,13 @@ const ExerciceCard = ({ showBodyPart, showBodyTagList, similarExerTarget, simila
 
     useEffect(() => {
         if (showBodyTagList) {
-            setShowExercise(showBodyTagList.slice(counter - 6, counter));
+            setShowExercise(showBodyTagList.slice(counter - 3, counter));
         }
     }, [showBodyTagList, counter])
 
     useEffect(() => {
         if (similarExerTarget) {
-            setCounter(3)
+
             training
                 .getOneBodyTagExer(similarExerTarget)
                 .then(({ data }) => { setShowExercise(data.slice(counter - 3, counter)) })
@@ -37,7 +37,7 @@ const ExerciceCard = ({ showBodyPart, showBodyTagList, similarExerTarget, simila
 
     useEffect(() => {
         if (similarExerEquipament) {
-            setCounter(3)
+
             training
                 .getExcerciseByEquipment(similarExerEquipament)
                 .then(({ data }) => {
@@ -49,11 +49,11 @@ const ExerciceCard = ({ showBodyPart, showBodyTagList, similarExerTarget, simila
 
 
     const handleNextPage = () => {
-        setCounter((prevCounter) => prevCounter + 9);
+        setCounter((prevCounter) => prevCounter + 3);
     };
 
     const handlePrevPage = () => {
-        if (counter > 9) setCounter((prevCounter) => prevCounter - 9);
+        if (counter > 9) setCounter((prevCounter) => prevCounter - 3);
     };
 
     return (
@@ -75,11 +75,19 @@ const ExerciceCard = ({ showBodyPart, showBodyTagList, similarExerTarget, simila
                 ))}
             </Row >
 
+            {showExercise.length > 0 &&
+                <div className="scrollNavigation">
+                    <button className='right' style={{ marginTop: "-8%" }} onClick={() => {
 
-            <div className="scrollNavigation">
-                <button className='left' style={{ marginLeft: "32%", marginTop: "-5%" }} onClick={handlePrevPage}><img src="../../left-arrow.png" alt="" /></button>
-                <button className='right' style={{ marginRight: "38%", marginTop: "-5%" }} onClick={handleNextPage}><img src="../../right-arrow.png" alt="" /></button>
-            </div>
+                        handleNextPage()
+                    }}><img src="../../right-arrow.png" alt="" /></button>
+
+                    <button className='left' style={{ marginRight: "5%", marginTop: "-8%" }} onClick={() => {
+
+                        handlePrevPage()
+                    }}><img src="../../left-arrow.png" alt="" /></button>
+                </div>
+            }
 
         </>
     );

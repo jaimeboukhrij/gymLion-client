@@ -20,13 +20,13 @@ const ExcerciseDetail = () => {
             .getExcerciseById(idExercise)
             .then(({ data }) => setShowExercise(data))
             .catch(err => console.log(err))
-    }, [])
+    }, [idExercise])
 
 
 
     return (
         <div className="exDetailPage">
-            <CardDetailEx showExcercise={showExcercise} />
+            <CardDetailEx showExcercise={showExcercise} idExercise={idExercise} />
             <ExcerciseVideos showExcercise={showExcercise} />
             <SimilarExercise showExcercise={showExcercise} />
         </div>

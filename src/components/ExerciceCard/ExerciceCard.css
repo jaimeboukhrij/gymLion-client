@@ -1,6 +1,6 @@
 .listExercise {
 
-    margin-top: 20%;
+    margin-top: 15%;
     color: black;
     justify-content: space-around;
     text-align: center;
@@ -14,22 +14,22 @@
 }
 
 .exercise-card {
-    background-color: #050801;
+
     border-top: 3px solid red;
     width: 480px;
     height: 600px;
     margin: 5px;
-    margin-bottom: 10%;
-    transform: scale(1, 1);
+    margin-bottom: 7%;
+    transform: scale(0.8, 0.8);
     transition: 0.3s all ease-in-out;
     text-transform: capitalize;
     color: blue;
 }
 
 .prueba {
-    color: white;
+    color: black;
     margin-top: 6%;
-    font-size: 2.8em;
+    font-size: 2.2em;
     text-decoration-line: none;
     font-family: sans-serif;
 }

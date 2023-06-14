@@ -11,6 +11,8 @@ const MealCard = ({ meal }) => {
     const [showModal, setShowModal] = useState(false)
     const [showMealCard, setShowMealCard] = useState()
 
+    console.log(".....", showMealCard)
+
     useEffect(() => {
         getMealInf()
     }, []);

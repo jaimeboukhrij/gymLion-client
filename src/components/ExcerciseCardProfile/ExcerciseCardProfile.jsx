@@ -47,8 +47,8 @@ const ExcerciseCardProfile = ({ showExerciseProfile }) => {
 
 
             <div className="scrollNavigation">
-                <button className='left' style={{ marginLeft: "32%", marginTop: "-5%" }} onClick={handlePrevPage}><img src="../../left-arrow.png" alt="" /></button>
-                <button className='right' style={{ marginRight: "38%", marginTop: "-5%" }} onClick={handleNextPage}><img src="../../right-arrow.png" alt="" /></button>
+                <button className='left' style={{ marginRight: "5%", marginTop: "-5%" }} onClick={handlePrevPage}><img src="../../left-arrow.png" alt="" /></button>
+                <button className='right' style={{ marginRight: "0%", marginTop: "-5%" }} onClick={handleNextPage}><img src="../../right-arrow.png" alt="" /></button>
             </div>
 
         </>

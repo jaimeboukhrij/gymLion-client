@@ -12,7 +12,8 @@
  .cardScroll p {
      margin-top: 7%;
      text-align: center;
-     color: white;
+     color: black;
+     font-weight: bold;
      font-family: sans-serif;
      font-size: 2.2em;
      text-decoration: none;
@@ -31,10 +32,11 @@
 
  .scrollNavigation .right {
      float: right;
-     width: 100px;
+     width: 50px;
  }
 
  .scrollNavigation .left {
-     float: left;
-     width: 100px;
+     float: right;
+     width: 50px;
+     margin-right: 2%;
  }

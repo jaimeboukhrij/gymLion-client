@@ -4,6 +4,8 @@ import training from "../../services/training.services"
 import HorizontalScrollbar from "../../components/HorizontalScrollBar/HorizontalScrollBar"
 import TrainingSearch from "../../components/TrainingSearch/TrainingSearch"
 import ExerciceCard from "../../components/ExerciceCard/ExerciceCard"
+import TrainHeader from "../../components/TrainHeader/TrainHeader"
+import ProfileExercise from "../../components/ProfileExercise/ProfileExercise"
 
 const Training = () => {
 
@@ -37,9 +39,11 @@ const Training = () => {
 
     return (
         <>
+            <TrainHeader />
             <TrainingSearch setShowBodyTagPart={setShowBodyTagPart} />
             <HorizontalScrollbar showBodyPartList={showBodyPartList} setShowBodyPart={setShowBodyPart} />
             <ExerciceCard showBodyPart={showBodyPart} showBodyTagList={showBodyTagList} />
+            <ProfileExercise />
 
         </>
 

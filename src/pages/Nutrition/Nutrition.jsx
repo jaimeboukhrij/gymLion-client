@@ -8,7 +8,7 @@ import Nutritionheader from "../../components/Nutritionheader/Nutritionheader";
 const Nutrition = () => {
 
     return (
-        <>
+        <div style={{ paddingTop: "6%" }}>
 
 
             <Nutritionheader />
@@ -53,6 +53,7 @@ const Nutrition = () => {
                             </p>
                         </Card.Body>
                         <Link to={"/nutrition/searchFood"}> <Button as={"button"}>LET'S GET STARTED!</Button></Link>
+
                     </Col>
 
                 </Row>
@@ -85,7 +86,7 @@ const Nutrition = () => {
 
 
 
-        </>
+        </div>
     );
 
 }

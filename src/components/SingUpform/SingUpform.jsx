@@ -15,10 +15,13 @@ const SignupForm = () => {
         firstName: '',
         secondName: "",
         userName: "",
-        avatar: ""
+        avatar: "",
+        headerImg: ""
     })
 
     const [getAvatar, setGetAvatar] = useState()
+    const [getHeaderImg, setHeaderImg] = useState()
+
 
     const navigate = useNavigate()
 
@@ -34,7 +37,6 @@ const SignupForm = () => {
 
         getAvatar && getChat(signupData.userName, signupData.password, getAvatar)
 
-
         authService
             .signup(signupData)
             .then(({ data }) => {
@@ -45,6 +47,16 @@ const SignupForm = () => {
 
     const avatar = useCallback((url) => {
         setSignupData((prevData) => ({ ...prevData, avatar: url }));
+        console.log("en perfiilll", url)
+
+
+    }, []);
+
+    const headerImg = useCallback((url) => {
+        setSignupData((prevData) => ({ ...prevData, headerImg: url }));
+        console.log("en header", url)
+
+
     }, []);
 
 
@@ -87,7 +99,12 @@ const SignupForm = () => {
 
                 <div className="inputBox">
                     <ImageUploader profImg={avatar} setGetAvatar={setGetAvatar} />
-                    <span>Imagen Perfil</span>
+                    <span>Profile Image</span>
+                </div>
+
+                <div className="inputBox">
+                    <ImageUploader profImg={headerImg} />
+                    <span>Header Image</span>
                 </div>
 
                 <button className="enter">Enter</button>

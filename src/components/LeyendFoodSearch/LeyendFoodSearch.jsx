@@ -66,13 +66,13 @@ const LeyendFoodSearch = ({ showFoodInf, foodId }) => {
                 </Col>
 
                 <Col md={{ span: 4, offset: 0 }} >
-                    <div style={{ color: "white", margin: "30px 10px 0 0" }}>{`Protein: (${parseInt(showAmountProtein)}) g`}</div>
-                    <div style={{ color: "white", margin: "10px 0" }}>{`Carbs:  (${parseInt(showAmountCarbs)}) g`}</div>
-                    <div style={{ color: "white", margin: "10px 0 0 0" }}>{`Fat: (${parseInt(showAmountFat)}) g`}</div>
+                    <div style={{ color: "black", margin: "30px 10px 0 0" }}>{`Protein: (${parseInt(showAmountProtein)}) g`}</div>
+                    <div style={{ color: "black", margin: "10px 0" }}>{`Carbs:  (${parseInt(showAmountCarbs)}) g`}</div>
+                    <div style={{ color: "black", margin: "10px 0 0 0" }}>{`Fat: (${parseInt(showAmountFat)}) g`}</div>
                 </Col>
 
-                <Col md={{ span: 4, offset: 2 }} >
-                    <div className="iconCardDetail">
+                <Col md={{ span: 1, offset: 5 }} >
+                    <div className="iconCardDetail" >
                         <input id="toggle-heart" type="checkbox" onClick={() => setCheckFavourite(!checkFavourite)} checked={checkFavourite} />
                         <label for="toggle-heart" aria-label="like">❤</label>
 
@@ -82,7 +82,9 @@ const LeyendFoodSearch = ({ showFoodInf, foodId }) => {
 
 
             </Row>
-            <MyResponsivePie className={"data"} showFoodInf={showFoodInf} />
+            <div style={{ height: "80vh" }}>
+                <MyResponsivePie className={"data"} showFoodInf={showFoodInf} />
+            </div>
         </>
 
     )

@@ -9,4 +9,17 @@
 .membersCard {
     margin-bottom: -3%;
     margin-left: 7%;
+    cursor: pointer;
+}
+
+.membersCard:hover {
+    transform: scale(1.1);
+}
+
+
+
+.GymFam {
+    height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

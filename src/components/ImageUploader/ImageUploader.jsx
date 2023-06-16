@@ -7,13 +7,14 @@ const ImageUploader = ({ profImg, setGetAvatar }) => {
     useEffect(() => {
         if (imageUrl) {
             profImg(imageUrl);
+
         }
     }, [imageUrl, profImg]);
 
     const handleUpload = (event) => {
 
         const file = event.target.files[0];
-        setGetAvatar(file)
+        setGetAvatar && setGetAvatar(file)
         const formData = new FormData();
         formData.append('file', file);
         formData.append('upload_preset', 'ysg6er97');

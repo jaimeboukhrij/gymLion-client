@@ -130,7 +130,8 @@ const MealsDay = () => {
 
 
     return (
-        <>
+        <div style={{ paddingTop: "6%" }}>
+
             <CalendarMealsDay handleInputChange={handleInputChange} />
 
             <Row>
@@ -153,7 +154,7 @@ const MealsDay = () => {
                 <Col md={{ span: 5, offset: 1 }} >
                     <p className={"totalCalories"}>Total Calories: {totalCalories} kcal</p>
 
-                    <div style={{ display: `${displayBar}` }}>
+                    <div style={{ display: `${displayBar}`, marginRight: "70%", marginTop: "-5%" }}>
                         <CaloriesFoodSearch changesendFood={changesendFood} changeDisplay={changeDisplay} setShowAmount={setShowAmount} showAmount={showAmount} />
                     </div>
 
@@ -167,7 +168,7 @@ const MealsDay = () => {
                 </Col>
 
             </Row>
-        </>
+        </div>
     )
 }
 

@@ -13,6 +13,7 @@ import MyProfile from "../pages/MyProfile/MyProfile"
 import Marks from "../pages/Marks/Marks"
 import Social from "../pages/Social/Social"
 import Chat from "../components/socialComponents/Chat/Chat"
+import PrivateChat from "../components/socialComponents/PrivateChat/PrivateChat"
 
 const AppRoutes = () => {
 

@@ -33,6 +33,7 @@ class FoodService {
     }
 
     getRecipeCard(recipeId) {
+        console.log("-----", recipeId)
         return this.api.get(`/recipes/${recipeId}/card`)
 
     }

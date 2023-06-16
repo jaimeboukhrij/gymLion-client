@@ -1,21 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useContext } from 'react';
-import axios from 'axios';
-import "./ModalPublication.css"
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
+import axios from 'axios';
+import "./ModalPublication.css";
 import { AuthContext } from '../../../contexts/auth.context';
 import ImageUploader from '../../ImageUploader/ImageUploader';
 import socialService from '../../../services/social.services';
-
-
 
 const ModalPublication = ({ showModal, setShowModal }) => {
     const { user } = useContext(AuthContext);
     const [text, setText] = useState();
     const [selectedImage, setSelectedImage] = useState(null);
-    const [urlCloudinary, setUrlCloudinary] = useState()
+    const [urlCloudinary, setUrlCloudinary] = useState();
     const fileInputRef = useRef(null);
-
 
     const handleChange = (event) => {
         setText(event.target.value);
@@ -41,38 +37,31 @@ const ModalPublication = ({ showModal, setShowModal }) => {
             try {
                 const response = await axios.post('https://api.cloudinary.com/v1_1/djpeqlbo6/image/upload', formData);
                 const imageUrl = response.data.secure_url;
-                setUrlCloudinary(imageUrl)
-                setSelectedImage(null)
-
-
+                setUrlCloudinary(imageUrl);
+                setSelectedImage(null);
             } catch (error) {
                 console.error('Error al cargar la imagen en Cloudinary:', error);
             }
+        } else {
+            setUrlCloudinary("");
+            setSelectedImage(null);
         }
-        else {
-            setUrlCloudinary("")
-            setSelectedImage(null)
-
-        }
-
 
         setShowModal(false);
     };
 
     useEffect(() => {
-        console.log("dentro del if", urlCloudinary)
         socialService
             .savePost({ text, urlCloudinary })
-            .catch(e => console.log(e));
-        setText()
-
+            .catch((e) => console.log(e));
+        setText("");
     }, [urlCloudinary]);
 
     return (
         <Modal show={showModal} onHide={() => {
-            setText()
-            setShowModal(false)
-            setSelectedImage(null)
+            setText("");
+            setShowModal(false);
+            setSelectedImage(null);
         }} size="lg">
             <Modal.Header closeButton></Modal.Header>
             <Modal.Body className="show-grid">
@@ -95,19 +84,17 @@ const ModalPublication = ({ showModal, setShowModal }) => {
                     </Row>
                 </Container>
             </Modal.Body>
-            <Modal.Footer >
-                <Row style={{ marginRight: "50%" }} >
+            <Modal.Footer>
+                <Row style={{ marginRight: "50%" }}>
                     <Col className={"socialNavbarImg"} md={{ offset: 0, span: 1 }}>
                         <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
                             <img width="30" height="35" src="https://img.icons8.com/ios/50/228BE6/picture.png" alt="picture" />
                         </label>
                         <input id="fileInput" type="file" onChange={handleFileInputChange} ref={fileInputRef} style={{ display: "none" }} />
                     </Col>
-
                     <Col className={"socialNavbarImg"} md={{ offset: 0, span: 1 }}>
                         <img width="30" height="40" src="https://img.icons8.com/ios/50/228BE6/gif--v1.png" alt="gif--v1" />
                     </Col>
-
                     <Col className={"socialNavbarImg"} md={{ offset: 0, span: 1 }}>
                         <img width="30" height="40" src="https://img.icons8.com/ios/50/228BE6/survey.png" alt="survey" />
                     </Col>
@@ -124,3 +111,4 @@ const ModalPublication = ({ showModal, setShowModal }) => {
 };
 
 export default ModalPublication;
+

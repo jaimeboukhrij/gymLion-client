@@ -4,7 +4,7 @@ import userApiServices from "../../../services/user.services"
 import { Col, Modal, Row } from "react-bootstrap";
 
 
-const GymFamily = () => {
+const GymFamily = ({ displays }) => {
 
     const [gymMembers, setGymMembers] = useState()
 
@@ -28,12 +28,12 @@ const GymFamily = () => {
 
     return (<>
         <h2>Gym Family</h2>
-        <div>
+        <div className="GymFam">
             {
-                gymMembers?.map(({ avatar, userName, firstName, lastName }, index) => {
+                gymMembers?.map(({ avatar, userName, firstName, lastName, _id }, index) => {
                     return (
 
-                        <div className="membersCard" key={index}>
+                        <div className="membersCard" key={index} onClick={() => displays("theirProfiles", _id)}>
                             <Row>
                                 <Col md={{ span: 2, offset: 1 }} >
                                     <img src={`${avatar}`} alt="" />

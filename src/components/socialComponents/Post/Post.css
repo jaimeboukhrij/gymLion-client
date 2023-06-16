@@ -3,6 +3,8 @@
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
+    padding-right: 5%;
+    overflow-x: hidden;
 
 }
 
@@ -21,8 +23,9 @@
 }
 
 .eachPost {
-    margin-bottom: 7%;
+    margin-bottom: 3%;
     padding-left: 4%;
+    min-height: max-content;
 }
 
 .eachPostProfileImg {
@@ -46,6 +49,7 @@
     text-align: justify;
     float: left;
     margin-top: 2%;
+    margin-bottom: 5%;
     font-family: sans-serif;
     font-size: 1.2em;
     letter-spacing: 0.5px;
@@ -55,10 +59,10 @@
 
 
 .eachPost .img {
-    float: left;
-    clip-path: none;
+    clip-path: none !important;
+    margin-left: 30%;
     margin-top: 3%;
     border: 1px solid transparent;
-    clip-path: circle(69%);
+
 
 }

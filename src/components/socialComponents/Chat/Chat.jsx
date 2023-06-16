@@ -15,14 +15,16 @@ const Chat = () => {
     console.log("---------------", user)
 
     return (
-        <ChatEngine
-            height="85vh"
-            projectID={projectID}
-            userName={user.userName}
-            userSecret="1234"
-            renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-            onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
-        />
+        <div style={{ paddingTop: "6%" }}>
+            <ChatEngine
+                height="85vh"
+                projectID={projectID}
+                userName={user.userName}
+                userSecret="1234"
+                renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+                onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
+            />
+        </div>
     );
 };
 

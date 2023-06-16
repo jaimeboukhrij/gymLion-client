@@ -48,7 +48,7 @@ const CaloriesFoodSearch = ({ changesendFood, changeDisplay, setShowAmount, show
 
     return (
         <>
-            <button style={{ float: "left", marginTop: "3%" }} onClick={() => changeDisplay()}>Watch Details</button>
+            <button style={{ position: "relative", left: "250%", bottom: "-10%" }} onClick={() => changeDisplay()}>Watch Details</button>
             <form className="search-container">
                 <input type="text" value={foodQuery} onChange={handleQueryChange} id="search-bar" placeholder="Add Your Food..." />
                 <a href="#"><img className="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" /></a>
@@ -62,12 +62,12 @@ const CaloriesFoodSearch = ({ changesendFood, changeDisplay, setShowAmount, show
 
                 <div >
 
-                    <Row>
+                    <Row style={{ marginTop: "22%" }}>
                         {
                             showFood.map(({ id, name, image }) => {
 
                                 return (
-                                    <Col md={{ span: 12, offset: 1 }} >
+                                    <Col md={{ span: 12, offset: 6 }}  >
 
                                         <div id="buttonMealDayPlan">
                                             <span onClick={() => {

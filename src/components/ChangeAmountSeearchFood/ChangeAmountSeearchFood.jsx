@@ -7,7 +7,7 @@ const ChangeAmountSeearchFood = ({ setShowAmount, showAmount }) => {
     };
 
     return (
-        <InputGroup size="sm" style={{ width: "100px" }}>
+        <InputGroup size="xl" style={{ width: "100px", position: "relative", top: "10%", left: "45%" }}>
             <Form.Control
                 onChange={handleInputChange} value={showAmount} />
             <InputGroup.Text>g</InputGroup.Text>

@@ -4,7 +4,12 @@
     height: 100vh;
     margin-left: 6%;
     margin-top: 2%;
+    padding: 6%;
 
+}
+
+.socialNavbar a {
+    color: black;
 }
 
 .socialNavbarText {
@@ -32,6 +37,7 @@
 .socialNavbarImg {
     width: 70px;
 }
+
 
 .twittear {
     cursor: pointer;

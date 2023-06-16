@@ -30,8 +30,9 @@
 
 .MyMealsDinner button {
     margin-top: 3%;
-    font-size: 1.5em;
-
+    font-size: 1.1em;
+    background-color: #e74c3c;
+    color: black;
     padding: 3px 15px;
     border-radius: 50px;
 }

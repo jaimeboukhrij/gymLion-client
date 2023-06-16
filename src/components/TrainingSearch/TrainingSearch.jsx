@@ -15,7 +15,7 @@ const TrainingSearch = ({ setShowBodyTagPart }) => {
     const submitBodyExercise = (e) => {
         e.preventDefault()
         setShowBodyTagPart(showQuery)
-        window.scrollTo(0, 1000)
+        setTimeout(() => window.scrollTo(0, 2000), 500)
     }
 
 

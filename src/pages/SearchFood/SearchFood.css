@@ -1,4 +1,7 @@
 .search-container {
+    position: relative;
+    top: -20%;
+    left: 50%;
     width: 500px;
     display: block;
     margin: 0 auto;
@@ -7,17 +10,19 @@
 
 input#search-bar {
     margin: 0 auto;
-    width: 100%;
+    color: black;
+    width: 120%;
     height: 45px;
-    padding: 0 20px;
-    font-size: 1rem;
-    border: 1px solid #D0CFCE;
+    padding: 30px 20px;
+    font-size: 2rem;
+    border: 2px solid #D0CFCE;
     outline: none;
 
     &:focus {
-        border: 1px solid #008ABF;
-        transition: 0.35s ease;
-        color: #008ABF;
+        border: 3px solid black;
+
+        color: black;
+        font-size: 2rem;
 
         &::-webkit-input-placeholder {
             transition: opacity 0.45s ease;
@@ -41,8 +46,8 @@ input#search-bar {
     float: right;
     width: 75px;
     height: 75px;
-    top: -62px;
-    right: -10px;
+    top: -70px;
+    right: -20%;
 }
 
 /* .searchFood {
@@ -50,8 +55,10 @@ input#search-bar {
 } */
 
 .searchFood img {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 15px;
 }
 
 .data {
@@ -60,9 +67,17 @@ input#search-bar {
 }
 
 .foodResult {
-    background-color: #212529;
+    background-color: #f8f5f1;
+    color: black;
     width: 300px;
     height: 200px;
-    border: 2px solid gray;
     margin: 35px 40px;
+    border: none;
+    transition: 500ms;
+}
+
+.foodResult:hover {
+    background-color: #efedea;
+    color: black;
+    transform: scale(1.1);
 }

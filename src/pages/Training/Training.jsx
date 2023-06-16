@@ -38,15 +38,14 @@ const Training = () => {
     }, [showBodyTagPart])
 
     return (
-        <>
+        <div style={{ paddingTop: "6%" }}>
             <TrainHeader />
             <TrainingSearch setShowBodyTagPart={setShowBodyTagPart} />
             <HorizontalScrollbar showBodyPartList={showBodyPartList} setShowBodyPart={setShowBodyPart} />
             <ExerciceCard showBodyPart={showBodyPart} showBodyTagList={showBodyTagList} />
             <ProfileExercise />
 
-        </>
-
+        </div>
     )
 }
 

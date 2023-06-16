@@ -27,28 +27,29 @@ function RandomFoodPage() {
 
 
     return (
-        <section className="webdesigntuts-workshop">
-            <div className="form">
-                <input type="search" onChange={handleChange} placeholder="¿Cuántas Kcal quieres consumir?" />
-                <button className="firstButom" onClick={getMealdData}>Search</button>
-            </div>
+        <div style={{ paddingTop: "6%", background: "white" }}>
+            <section className="webdesigntuts-workshop">
+                <div className="form">
+                    <input type="search" onChange={handleChange} placeholder="¿Cuántas Kcal quieres consumir?" />
+                    <button className="firstButom" onClick={getMealdData}>Search</button>
+                </div>
 
-            {
-                mealData
-                &&
-                <Row style={{ padding: "90px 0 0px 110px" }}>
-                    {
-                        mealData.map(meal => (
-                            <Col key={meal.id}>
-                                <MealCard meal={meal} />
-                            </Col>
-                        ))}
-                </Row>
-            }
+                {
+                    mealData
+                    &&
+                    <Row style={{ padding: "90px 0 0px 110px" }}>
+                        {
+                            mealData.map(meal => (
+                                <Col key={meal.id}>
+                                    <MealCard meal={meal} />
+                                </Col>
+                            ))}
+                    </Row>
+                }
 
-        </section>
+            </section>
 
-
+        </div>
     );
 }
 

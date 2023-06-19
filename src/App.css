@@ -13,6 +13,15 @@ a {
   text-decoration: none;
 }
 
+#root {
+  transform: scale(0.8);
+  transform-origin: top left;
+  width: 125%;
+  /* Ajusta el ancho para compensar el zoom */
+  height: 125%;
+  /* Ajusta la altura para compensar el zoom */
+}
+
 
 
 

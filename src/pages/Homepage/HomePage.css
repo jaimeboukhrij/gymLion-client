@@ -15,8 +15,8 @@ section {
 main {
     background-position: center 0%;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    height: 125vh;
+    width: 125vw;
     position: relative;
     z-index: 2;
     transition: transform 500ms cubic-bezier(.13, .53, .38, .97);
@@ -30,6 +30,7 @@ section[data-nav="true"]>main {
     height: 50vh;
     width: 100%;
     position: absolute;
+    top: 270px;
     left: 0px;
     bottom: 0px;
     z-index: 1;
@@ -90,6 +91,7 @@ section[data-nav="true"]>nav>#nav-links {
     position: fixed;
     z-index: 3;
     left: 50%;
+    top: 105%;
     bottom: 3rem;
     transform: translateX(-50%);
     background-color: rgb(182, 142, 113);

@@ -28,14 +28,6 @@ const ProfilePost = ({ homeClick, profileClick, displays, gymFamilyIds, activeBu
 
     }, [])
 
-    useEffect(() => {
-
-        socialService
-            .getPost()
-            .then(({ data }) => { setBringPost(data.reverse()) })
-            .catch((e) => console.log(e))
-
-    }, [homeClick])
 
 
     useEffect(() => {
@@ -44,6 +36,7 @@ const ProfilePost = ({ homeClick, profileClick, displays, gymFamilyIds, activeBu
         socialService
             .getPost()
             .then(({ data }) => {
+
                 const ProfilePost = data.filter((data) => data.owner == user._id)
                 setBringPost(ProfilePost.reverse())
             })
@@ -65,6 +58,18 @@ const ProfilePost = ({ homeClick, profileClick, displays, gymFamilyIds, activeBu
 
     }, [gymFamilyIds])
 
+    useEffect(() => {
+        setInfPost(undefined)
+        socialService
+            .getPost()
+            .then(({ data }) => {
+                const ProfilePost = data.filter((data) => data.owner == gymFamilyIds)
+                setBringPost(ProfilePost.reverse())
+            })
+            .catch((e) => console.log(e))
+
+    }, [activeButton])
+
 
     console.log("gymid", gymFamilyIds)
 
@@ -74,8 +79,10 @@ const ProfilePost = ({ homeClick, profileClick, displays, gymFamilyIds, activeBu
 
 
 
-    const getPostInfo = () => {
 
+
+
+    const getPostInfo = () => {
 
         const allPromises = bringPost?.map(({ owner }, index) => userApiServices.getOneUser(owner).then((res) => res.data))
 
@@ -85,7 +92,7 @@ const ProfilePost = ({ homeClick, profileClick, displays, gymFamilyIds, activeBu
                 .then((response) => setInfPost(response))
                 .catch((err) => console.log(err));
         }
-    };
+    }
 
 
 
@@ -94,7 +101,7 @@ const ProfilePost = ({ homeClick, profileClick, displays, gymFamilyIds, activeBu
     return (
         <div className="post">
             {
-                setInfPost.length > 0 ?
+                infPost ?
 
                     bringPost?.map(({ text, image, owner }, index) => {
 

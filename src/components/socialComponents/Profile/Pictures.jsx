@@ -5,7 +5,7 @@ import { Button, Col, Container, Modal, Row } from "react-bootstrap"
 import userApiServices from "../../../services/user.services"
 import { AuthContext } from "../../../contexts/auth.context"
 
-const Pictures = ({ gymFamilyIds }) => {
+const Pictures = ({ gymFamilyIds, activeButton }) => {
 
     const [bringPost, setBringPost] = useState()
 
@@ -38,6 +38,18 @@ const Pictures = ({ gymFamilyIds }) => {
 
     }, [gymFamilyIds])
 
+    useEffect(() => {
+        setInfPost(undefined)
+        socialService
+            .getPost()
+            .then(({ data }) => {
+                const ProfilePost = data.filter((data) => data.owner == gymFamilyIds)
+                setBringPost(ProfilePost.reverse())
+            })
+            .catch((e) => console.log(e))
+
+    }, [activeButton])
+
 
 
     useEffect(() => getPostInfo(), [bringPost])
@@ -67,7 +79,7 @@ const Pictures = ({ gymFamilyIds }) => {
     return (
         <div className="post"                                                                                                                                               >
             {
-                setInfPost &&
+                infPost &&
 
                 bringPost?.map(({ text, image }, index) => {
 
